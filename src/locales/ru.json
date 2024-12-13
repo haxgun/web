@@ -1,0 +1,97 @@
+{
+  "downloadPDF": "Скачать PDF",
+  "name": "Миша Гусев",
+  "profession": "Программист",
+  "age": "Мужчина, 22 года, 31 декабря 2001 года",
+  "contact": {
+    "email": "Эл. почта",
+    "preferred": "предпочитаемый способ связи",
+    "phone": "Телефон",
+    "telegram": "Telegram",
+    "github": "Github",
+    "website": "Сайт",
+    "city": "Пермь"
+  },
+  "about": "Молодой специалист с навыками работы на Python<br /> и опытом создания REST API с использованием FastAPI.<br /> Освоил основы frontend-разработки<br /> на Vue.js, успешно работаю с SQLAlchemy и SQLite<br /> для проектирования баз данных. Хорошо<br /> взаимодействую с командой, но также успешно справляюсь с самостоятельными проектами.<br /> Постоянно развиваюсь, страстно интересуюсь<br /> информационными технологиями, изучаю новое<br />  и готов применить свои знания в реальных проектах.",
+  "experience": {
+    "title": "Опыт работы (Фриланс)",
+    "valory": {
+      "company": "Valory",
+      "duration": "2023 — настоящее время",
+      "tasks": [
+        "Разрабатывал backend и frontend.",
+        "Создал приложение для вывода статистики игрока VALORANT на стрим.",
+        "Помог множеству стримеров в выводе их статистики на стрим."
+      ]
+    },
+    "melody": {
+      "company": "Melody",
+      "duration": "2023 — настоящее время",
+      "tasks": [
+        "Разрабатывал backend и frontend.",
+        "Создал приложение, выводящее текущий трек Spotify для стримеров."
+      ]
+    },
+    "discordBot": {
+      "company": "Discord Bot",
+      "duration": "2022",
+      "tasks": [
+        "Помог снизить спам на сервере на 90%.",
+        "Создал интуитивную навигацию с приятным дизайном.",
+        "Реализовал множество фан-сервисов."
+      ]
+    }
+  },
+  "education": {
+    "title": "Образование",
+    "degree": "Бакалавр, Информатика и вычислительная техника",
+    "university": "Пермский национальный исследовательский политехнический университет",
+    "period": "Сентябрь 2019 — Июль 2023"
+  },
+  "courses": {
+    "title": "Курсы",
+    "items": [
+      {
+        "name": "\"Поколение Python\": курс для начинающих",
+        "organization": "Школа BEEGEEK"
+      },
+      {
+        "name": "Программирование на Python",
+        "organization": "Bioinformatics Institute"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Навыки",
+    "items": [
+      "HTML5, CSS, SCSS, SASS",
+      "JavaScript, TypeScript",
+      "Python",
+      "Windows, MacOS, Linux"
+    ]
+  },
+  "languages": {
+    "title": "Языковые навыки",
+    "items": ["Английский язык — B1"]
+  },
+  "tools": {
+    "title": "Инструменты",
+    "items": [
+      "Git, Github, Docker",
+      "Figma, Photoshop",
+      "PyCharm, VSCode",
+      "Django, DRF, FastAPI, Flask, Vue",
+      "SQL, SQLite, PostgreSQL, SQLModel",
+      "aiogram, aiohttp, pycord",
+      "Bash, zsh"
+    ]
+  },
+  "hobbies": {
+    "title": "Хобби",
+    "items": [
+      "Баскетбол",
+      "Спортзал",
+      "Чтение книг"
+    ]
+  }
+}
