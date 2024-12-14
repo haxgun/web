@@ -3,25 +3,24 @@ import TelegramIcon from '@/components/icons/TelegramIcon.vue'
 import GithubIcon from '@/components/icons/GithubIcon.vue'
 import TwitchIcon from '@/components/icons/TwitchIcon.vue'
 
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue'
 import CvIcon from '@/components/icons/cvIcon.vue'
 
-const isDeveloper = ref(false);
+const isDeveloper = ref(false)
 
 const handleKeyDown = (event) => {
   if (event.ctrlKey && event.altKey && (event.key === 'h' || event.key === 'р')) {
-    isDeveloper.value = !isDeveloper.value; // Переключаем значение
+    isDeveloper.value = !isDeveloper.value // Переключаем значение
   }
-};
+}
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeyDown);
-});
+  window.addEventListener('keydown', handleKeyDown)
+})
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyDown);
-});
-
+  window.removeEventListener('keydown', handleKeyDown)
+})
 </script>
 
 <template>
@@ -56,49 +55,34 @@ onUnmounted(() => {
       </div>
       <div v-else class="">
         <div class="title develop">
-          <img class="logo" src="/logo.png" alt="">
+          <img class="logo" src="/logo.png" alt="" />
         </div>
         <ul class="tools">
           <li class="social-icon">
-            <a href="/outline" target="__blank">
-              Outline
-            </a>
+            <a href="/outline" target="__blank"> Outline </a>
           </li>
           <li class="social-icon">
-            <a href="/nekoray" target="__blank">
-              Nekoray
-            </a>
+            <a href="/nekoray" target="__blank"> Nekoray </a>
           </li>
           <li class="social-icon">
-            <a href="/aio" target="__blank">
-              Windows AIO
-            </a>
+            <a href="/aio" target="__blank"> Windows AIO </a>
           </li>
           <li class="social-icon">
-            <a href="/spotify" target="__blank">
-              Spotify
-            </a>
+            <a href="/spotify" target="__blank"> Spotify </a>
           </li>
           <li class="social-icon">
-            <a href="/discord" target="__blank">
-              Discord
-            </a>
+            <a href="/discord" target="__blank"> Discord </a>
           </li>
           <li class="social-icon">
-            <a href="/notepad" target="__blank">
-              Notepad
-            </a>
+            <a href="/notepad" target="__blank"> Notepad </a>
           </li>
           <li class="social-icon">
-            <a href="/tools" target="__blank">
-              Tools
-            </a>
+            <a href="/tools" target="__blank"> Tools </a>
           </li>
         </ul>
       </div>
     </Transition>
   </section>
-
 </template>
 
 <style lang="scss" scoped>
@@ -194,8 +178,8 @@ onUnmounted(() => {
   gap: 14px;
 
   a {
-    color: #A00411;
-    transition: color .2s;
+    color: #a00411;
+    transition: color 0.2s;
     text-decoration: none;
 
     &:hover {
@@ -203,11 +187,10 @@ onUnmounted(() => {
     }
   }
 
-
   li:not(:last-child)::after {
-    content: " |";
+    content: ' |';
     margin-left: 5px;
-    color: #A00411;
+    color: #a00411;
   }
 
   .social-icon {

@@ -8,8 +8,4 @@ import App from './App.vue'
 
 const app = createApp(App)
 
-app
-  .use(MotionPlugin)
-  .use(i18n)
-  .use(router)
-  .mount('#app')
+app.use(MotionPlugin).use(i18n).use(router).mount('#app')

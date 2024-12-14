@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div id="app">
@@ -16,19 +15,18 @@
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .5s
+  transition: opacity 0.5s;
 }
 
 .fade-enter,
 .fade-leave-to {
-    opacity: 0
+  opacity: 0;
 }
 
 #app {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
-
 </style>

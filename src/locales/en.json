@@ -63,12 +63,7 @@
   },
   "skills": {
     "title": "Skills",
-    "items": [
-      "HTML5, CSS, SCSS, SASS",
-      "JavaScript, TypeScript",
-      "Python",
-      "Windows, MacOS, Linux"
-    ]
+    "items": ["HTML5, CSS, SCSS, SASS", "JavaScript, TypeScript", "Python", "Windows, MacOS, Linux"]
   },
   "languages": {
     "title": "Language Skills",
@@ -88,10 +83,6 @@
   },
   "hobbies": {
     "title": "Hobbies",
-    "items": [
-      "Basketball",
-      "Gym",
-      "Reading books"
-    ]
+    "items": ["Basketball", "Gym", "Reading books"]
   }
 }

@@ -12,7 +12,7 @@ const router = createRouter({
       path: '/cv',
       name: 'cv',
       component: () => import('@/views/cvView.vue'),
-    }
+    },
   ],
 })
 

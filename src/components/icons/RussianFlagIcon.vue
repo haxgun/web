@@ -2,25 +2,33 @@
 defineProps({
   width: {
     type: Number,
-    default: 32
+    default: 32,
   },
   height: {
     type: Number,
-    default: 24
-  }
+    default: 24,
+  },
 })
 </script>
 
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" :width="width" :height="height" viewBox="0 0 32 24">
     <g fill="none">
-      <path fill="#3d58db" fill-rule="evenodd" d="M0 0v24h32V0z" clip-rule="evenodd"/>
-      <mask id="flagpackRu0" width="32" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:luminance">
-        <path fill="#fff" fill-rule="evenodd" d="M0 0v24h32V0z" clip-rule="evenodd"/>
+      <path fill="#3d58db" fill-rule="evenodd" d="M0 0v24h32V0z" clip-rule="evenodd" />
+      <mask
+        id="flagpackRu0"
+        width="32"
+        height="24"
+        x="0"
+        y="0"
+        maskUnits="userSpaceOnUse"
+        style="mask-type: luminance"
+      >
+        <path fill="#fff" fill-rule="evenodd" d="M0 0v24h32V0z" clip-rule="evenodd" />
       </mask>
       <g fill-rule="evenodd" clip-rule="evenodd" mask="url(#flagpackRu0)">
-        <path fill="#f7fcff" d="M0 0v8h32V0z"/>
-        <path fill="#c51918" d="M0 16v8h32v-8z"/>
+        <path fill="#f7fcff" d="M0 0v8h32V0z" />
+        <path fill="#c51918" d="M0 16v8h32v-8z" />
       </g>
     </g>
   </svg>
