@@ -1,18 +1,22 @@
 <script setup lang="ts">
-defineProps({
-  width: {
-    type: Number,
-    default: 32,
-  },
-  height: {
-    type: Number,
-    default: 24,
-  },
+interface Props {
+  width?: number
+  height: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  width: 32,
+  height: 24,
 })
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" :width="width" :height="height" viewBox="0 0 32 24">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    :width="props.width"
+    :height="props.height"
+    viewBox="0 0 32 24"
+  >
     <g fill="none">
       <path fill="#f7fcff" fill-rule="evenodd" d="M0 0h32v24H0z" clip-rule="evenodd" />
       <path
@@ -31,5 +35,3 @@ defineProps({
     </g>
   </svg>
 </template>
-
-<style scoped lang="scss"></style>

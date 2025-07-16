@@ -1,0 +1,1 @@
+export { useMetaExtractor } from './useMetaExtractor'
