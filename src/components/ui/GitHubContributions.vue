@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github } from '@/components/icons/socials'
+import { GithubIcon } from '@/components/icons/socials'
 import { type ContributionDay, type ContributionWeek, type ContributionsData } from '@/types/github'
 import { computed, onMounted, ref } from 'vue'
 
@@ -84,7 +84,8 @@ onMounted(async () => {
       class="inline-flex justify-between font-medium text-neutral-500 items-center text-sm w-full"
     >
       <span class="inline-flex gap-2 items-center">
-        <Github :size="16" color="#737373" />Активность на GitHub
+        <GithubIcon :size="16" color="#737373" />
+        <span>Активность на GitHub</span>
       </span>
       <span :class="{ 'text-red-400': error }">{{ displayText }}</span>
     </div>
@@ -114,9 +115,13 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <div v-if="loading" class="mt-4">
+    <div v-else class="py-3">
       <div class="grid grid-cols-53 gap-0.5">
-        <div v-for="i in 371" :key="i" class="size-3 rounded-[3px] bg-neutral-100 animate-pulse" />
+        <div
+          v-for="i in 371"
+          :key="i"
+          class="size-[11.5px] rounded-[3px] bg-neutral-100 animate-pulse"
+        />
       </div>
     </div>
   </div>

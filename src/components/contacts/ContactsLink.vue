@@ -9,7 +9,7 @@ const props = defineProps<Contact>()
     class="group contact-url text-[var(--color)] hover:bg-[var(--color)]/5 w-fit cursor-pointer font-medium gap-2 py-px px-2 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
     :href="props.url"
   >
-    <component v-if="props.icon" :is="props.icon" class="size-4" />
+    <component v-if="props.icon" :color="props.color" :is="props.icon" class="size-4" />
     <span>{{ props.name }}</span>
     <span class="text-[var(--color)]/40 text-sm">{{ props.tag }}</span>
     <span
