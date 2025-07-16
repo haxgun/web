@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      redirect: '/',
+      component: () => import('@/pages/ProjectsPage.vue'),
     },
     {
       path: '/uses',

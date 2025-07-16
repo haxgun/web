@@ -4,6 +4,7 @@ import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
 import { LinkPreview } from '@/components/ui'
 import GitHubContributions from '@/components/ui/GitHubContributions.vue'
+import { Separator } from '@/components/ui/separator'
 </script>
 
 <template>
@@ -22,14 +23,14 @@ import GitHubContributions from '@/components/ui/GitHubContributions.vue'
             Создаю
             <strong class="font-medium text-neutral-700">микросервисы, API и</strong>
             <LinkPreview
-              url="https://github.com/aiogram/aiogram"
+              url="https://core.telegram.org/bots/api"
               class="text-[#24A1DE] hover:bg-[#24A1DE]/5"
             >
               Telegram ботов
             </LinkPreview>
             с использованием
             <LinkPreview
-              url="https://github.com/fastapi/fastapi"
+              url="https://fastapi.tiangolo.com/"
               class="text-[#009485] hover:bg-[#009485]/5"
             >
               FastAPI
@@ -44,10 +45,7 @@ import GitHubContributions from '@/components/ui/GitHubContributions.vue'
           </div>
           <div class="text-neutral-500">
             Для <strong class="font-medium text-neutral-700">фронтенда</strong> использую
-            <LinkPreview
-              url="https://github.com/vitejs/vite"
-              class="text-[#F6C322] hover:bg-[#F6C322]/5"
-            >
+            <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/5">
               Vite </LinkPreview
             >,
             <LinkPreview
@@ -68,16 +66,10 @@ import GitHubContributions from '@/components/ui/GitHubContributions.vue'
             >
               Vue Router </LinkPreview
             >,
-            <LinkPreview
-              url="https://github.com/tailwindlabs/tailwindcss"
-              class="text-[#38BDF8] hover:bg-[#38BDF8]/5"
-            >
+            <LinkPreview url="https://tailwindcss.com/" class="text-[#38BDF8] hover:bg-[#38BDF8]/5">
               TailwindCSS </LinkPreview
             >и
-            <LinkPreview
-              url="https://github.com/unovue/reka-ui"
-              class="text-[#30C196] hover:bg-[#30C196]/5"
-            >
+            <LinkPreview url="https://reka-ui.com/" class="text-[#30C196] hover:bg-[#30C196]/5">
               Reka UI
             </LinkPreview>
           </div>
@@ -97,8 +89,9 @@ import GitHubContributions from '@/components/ui/GitHubContributions.vue'
             </LinkPreview>
           </div>
         </div>
+        <Separator />
         <GitHubContributions username="haxgun" />
-        <div class="h-px bg-neutral-200 w-full" />
+        <Separator />
         <Contacts />
         <Projects />
       </div>

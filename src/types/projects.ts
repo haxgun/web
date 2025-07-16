@@ -5,5 +5,5 @@ export interface Project {
   description?: string
   imageUrl?: string
   link?: string
-  stage: 'In progress' | 'Done' | 'Backlog'
+  stage: 'In progress' | 'Done' | 'Deferred'
 }

@@ -3,6 +3,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/h
 import { Skeleton } from '@/components/ui/skeleton'
 import { useMetaExtractor } from '@/composables'
 import { cn, openLink } from '@/lib/utils.ts'
+import { BookIcon } from 'lucide-vue-next'
 import type { HTMLAttributes } from 'vue'
 import { computed, ref } from 'vue'
 
@@ -69,11 +70,15 @@ const handleMouseEnter = async () => {
         </div>
 
         <div v-else-if="metaData" key="content" class="overflow-hidden">
-          <div
-            v-if="metaData.ogImage"
-            class="mb-4 aspect-[120/63] w-full rounded-md border object-cover"
-          >
+          <div class="mb-4 aspect-[120/63] w-full rounded-md border object-cover">
+            <div
+              v-if="!metaData.ogImage"
+              class="h-full w-full rounded-md flex flex-col justify-center items-center"
+            >
+              <BookIcon class="size-6 text-[#e5e5e5]" />
+            </div>
             <img
+              v-else
               :src="metaData.ogImage"
               :alt="metaData.title"
               class="h-full w-full rounded-md object-cover"

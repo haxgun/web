@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Github } from '@/components/icons/socials'
 import { type ContributionDay, type ContributionWeek, type ContributionsData } from '@/types/github'
 import { computed, onMounted, ref } from 'vue'
 
@@ -78,8 +79,13 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg text-neutral-600 font-sans text-xs">
-    <div class="text-sm">
+  <div class="bg-white rounded-lg text-neutral-600 font-sans text-xs w-fit">
+    <div
+      class="inline-flex justify-between font-medium text-neutral-500 items-center text-sm w-full"
+    >
+      <span class="inline-flex gap-2 items-center">
+        <Github :size="16" color="#737373" />Активность на GitHub
+      </span>
       <span :class="{ 'text-red-400': error }">{{ displayText }}</span>
     </div>
 
@@ -93,7 +99,7 @@ onMounted(async () => {
           <div
             v-for="(day, dayIndex) in week.days"
             :key="dayIndex"
-            class="size-3 rounded-[3px] cursor-pointer transition-all duration-100"
+            class="size-[11.5px] rounded-[3px] cursor-pointer transition-all duration-100"
             :class="{
               'bg-neutral-100 hover:bg-neutral-200': day.level === 0,
               'bg-green-900 hover:bg-green-800': day.level === 1,
