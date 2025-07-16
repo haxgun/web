@@ -11,7 +11,7 @@ const props = defineProps<Contact>()
   >
     <component v-if="props.icon" :is="props.icon" class="size-4" />
     <span>{{ props.name }}</span>
-    <span class="text-neutral-400 text-sm">{{ props.tag }}</span>
+    <span class="text-[var(--color)]/40 text-sm">{{ props.tag }}</span>
     <span
       class="opacity-0 group-hover:opacity-100 transition-opacity text-neutral-400 inline-flex items-center gap-2"
     >

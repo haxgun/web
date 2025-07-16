@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { Contacts } from '@/components/contacts'
 import { NexusQX, Valory } from '@/components/icons/logotypes'
+import { Projects } from '@/components/projects'
 import { LinkPreview } from '@/components/ui'
+import GitHubContributions from '@/components/ui/GitHubContributions.vue'
 </script>
 
 <template>
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-dvh">
-    <div class="grow md:px-5 md:pt-16 md:flex flex-col">
-      <div class="size-full flex flex-col">
-        <div class="font-semibold text-[2.25em] mt-2 mb-4 text-neutral-700">Миша Гусев</div>
+    <div class="grow px-5 md:pt-16 flex flex-col">
+      <div class="size-full flex flex-col gap-6">
+        <div class="font-semibold text-[2.25em] text-neutral-700">Миша Гусев</div>
         <div class="flex flex-col gap-4">
           <div class="text-neutral-500">
-            Привет! Я <strong class="font-medium text-neutral-700">разработчик</strong>, который
-            создаёт <strong class="font-medium text-neutral-700"> современные инструменты</strong>.
+            Привет! Я <strong class="font-medium text-neutral-700">full-stack разработчик</strong>,
+            который создаёт
+            <strong class="font-medium text-neutral-700"> современные инструменты</strong>.
           </div>
           <div class="text-neutral-500">
             В основном занимаюсь <strong class="font-medium text-neutral-700">бекендом</strong>.
@@ -39,12 +42,48 @@ import { LinkPreview } from '@/components/ui'
               aiogram
             </LinkPreview>
           </div>
+          <div class="text-neutral-500">
+            Для <strong class="font-medium text-neutral-700">фронтенда</strong> использую
+            <LinkPreview
+              url="https://github.com/vitejs/vite"
+              class="text-[#F6C322] hover:bg-[#F6C322]/5"
+            >
+              Vite </LinkPreview
+            >,
+            <LinkPreview
+              url="https://github.com/vuejs/core"
+              class="text-[#41B883] hover:bg-[#41B883]/5"
+            >
+              Vue 3 </LinkPreview
+            >,
+            <LinkPreview
+              url="https://github.com/vuejs/pinia"
+              class="text-[#ECB732] hover:bg-[#ECB732]/5"
+            >
+              Pinia </LinkPreview
+            >,
+            <LinkPreview
+              url="https://github.com/vuejs/router"
+              class="text-[#34495E] hover:bg-[#34495E]/5"
+            >
+              Vue Router </LinkPreview
+            >,
+            <LinkPreview
+              url="https://github.com/tailwindlabs/tailwindcss"
+              class="text-[#38BDF8] hover:bg-[#38BDF8]/5"
+            >
+              TailwindCSS </LinkPreview
+            >и
+            <LinkPreview
+              url="https://github.com/unovue/reka-ui"
+              class="text-[#30C196] hover:bg-[#30C196]/5"
+            >
+              Reka UI
+            </LinkPreview>
+          </div>
           <div class="text-neutral-500 inline-flex items-center gap-1">
             В настоящее время работаю над
-            <LinkPreview
-              url="https://github.com/ValoryLabs/Valory"
-              class="text-red-500 hover:bg-red-500/5"
-            >
+            <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/5">
               <Valory :size="19" />
               Valory
             </LinkPreview>
@@ -58,30 +97,10 @@ import { LinkPreview } from '@/components/ui'
             </LinkPreview>
           </div>
         </div>
-        <div class="h-px bg-neutral-200 w-full my-8" />
+        <GitHubContributions username="haxgun" />
+        <div class="h-px bg-neutral-200 w-full" />
         <Contacts />
-        <!-- <ul class="inline-flex items-center gap-1">
-          <li class="social-icon content-center">
-            <a href="https://www.twitch.tv/magicxcmd" target="__blank">
-              <Twitch />
-            </a>
-          </li>
-          <li class="social-icon">
-            <a href="https://t.me/haxgun" target="__blank">
-              <Telegram />
-            </a>
-          </li>
-          <li class="social-icon">
-            <a href="https://github.com/haxgun" target="__blank">
-              <Github />
-            </a>
-          </li>
-          <li class="social-icon">
-            <a href="/cv" target="__blank">
-              <BookText />
-            </a>
-          </li>
-        </ul> -->
+        <Projects />
       </div>
     </div>
   </main>
