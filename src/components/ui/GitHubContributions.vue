@@ -54,7 +54,6 @@ async function fetchRealContributions(user: string): Promise<ContributionsData> 
   }
 
   const total = json.contributions.reduce((s, d) => s + d.count, 0)
-  console.log(buf)
   return { weeks, totalContributions: total }
 }
 

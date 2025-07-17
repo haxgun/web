@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DefaultLayout } from '@/layouts'
 import { useRoute } from 'vue-router'
+import { CustomCursor } from './components/ui'
 
 const route = useRoute()
 // import { useHead, useSeoMeta } from '@unhead/vue'
@@ -29,6 +30,7 @@ const route = useRoute()
 
 <template>
   <div id="app">
+    <CustomCursor />
     <DefaultLayout>
       <router-view v-slot="{ Component }">
         <Transition name="slide-fade" mode="out-in">

@@ -2,8 +2,7 @@
 import { Contacts } from '@/components/contacts'
 import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
-import { LinkPreview } from '@/components/ui'
-import GitHubContributions from '@/components/ui/GitHubContributions.vue'
+import { GitHubContributions, LinkPreview } from '@/components/ui'
 import { Separator } from '@/components/ui/separator'
 </script>
 
