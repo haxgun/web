@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'open-source',
       redirect: '/',
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      redirect: { name: 'home' },
+    },
   ],
 })
 
