@@ -3,7 +3,9 @@ export interface Project {
   title: string
   short_description: string
   description?: string
-  imageUrl?: string
+  preview?: string
   link?: string
+  icon?: any
   stage: 'In progress' | 'Done' | 'Deferred'
+  dependencies?: string[]
 }

@@ -1,3 +1,4 @@
+import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { type Project } from '@/types/projects'
 
 export const ProjectsData: Project[] = [
@@ -6,17 +7,40 @@ export const ProjectsData: Project[] = [
     title: 'NexusQX',
     short_description: 'Short description for NexusQX',
     description: 'Description for NexusQX',
-    imageUrl: 'https://example.com/project1.jpg',
+    preview: '/projects_previews/nexusqx.png',
     link: 'https://example.com/project1',
     stage: 'In progress',
+    icon: NexusQX,
+    dependencies: [
+      'Mazban',
+      'FastAPI',
+      'Aiogram',
+      'Nuxt 4',
+      'TypeScript',
+      'PostgreSQL',
+      'Redis',
+      'SQLAlchemy',
+      'Docker',
+    ],
   },
   {
     year: 2023,
     title: 'VALORY',
-    short_description: 'Мульти-инструментрумент для стримеров',
+    short_description: 'Мультиинструмент для стримеров',
     description: 'Description for VALORY',
-    imageUrl: 'https://example.com/project1.jpg',
+    preview: '/projects_previews/valory.png',
     link: 'https://beta.valory.su',
     stage: 'In progress',
+    icon: Valory,
+    dependencies: [
+      'FastAPI',
+      'Vue 3',
+      'Pinia',
+      'TypeScript',
+      'PostgreSQL',
+      'Redis',
+      'SQLAlchemy',
+      'Docker',
+    ],
   },
 ]

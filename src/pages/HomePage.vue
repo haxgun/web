@@ -3,7 +3,6 @@ import { Contacts } from '@/components/contacts'
 import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
 import { GitHubContributions, LinkPreview } from '@/components/ui'
-import { Separator } from '@/components/ui/separator'
 </script>
 
 <template>
@@ -88,9 +87,7 @@ import { Separator } from '@/components/ui/separator'
             </LinkPreview>
           </div>
         </div>
-        <Separator />
         <GitHubContributions username="haxgun" />
-        <Separator />
         <Contacts />
         <Projects />
       </div>
