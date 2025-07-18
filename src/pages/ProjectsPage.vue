@@ -7,7 +7,7 @@ import { ProjectsData } from '@/data/Projects.data'
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto">
     <div class="grow px-5 md:pt-16 flex flex-col">
       <div class="size-full flex flex-col gap-6">
-        <div class="font-semibold text-[2.25em] text-neutral-700">Проекты</div>
+        <div class="font-semibold text-[2.25em] text-neutral-700 dark:text-white">Проекты</div>
         <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-4 w-full">
           <div
             v-for="project in ProjectsData"
@@ -16,7 +16,7 @@ import { ProjectsData } from '@/data/Projects.data'
           >
             <div class="inline-flex items-center justify-between w-full">
               <span class="inline-flex gap-2 items-center">
-                <component :is="project.icon" />
+                <component :is="project.icon" :style="{ color: project.color }" />
                 <span>{{ project.title }}</span>
               </span>
               <span class="inline-flex items-center gap-2">

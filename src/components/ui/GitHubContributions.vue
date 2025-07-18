@@ -78,7 +78,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg text-neutral-600 py-3 font-sans text-xs w-fit">
+  <div class="rounded-lg text-neutral-600 py-3 font-sans text-xs w-fit">
     <div
       class="inline-flex justify-between font-medium text-neutral-500 items-center text-sm w-full"
     >

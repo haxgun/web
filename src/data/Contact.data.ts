@@ -8,6 +8,7 @@ export const ContactsData: Contact[] = [
     tag: 'misha@valory.su',
     name: 'Почта',
     color: '#007bff',
+    dark_color: '#007bff',
     icon: MailIcon,
   },
   {
@@ -15,6 +16,7 @@ export const ContactsData: Contact[] = [
     tag: '@haxgun',
     name: 'Github',
     color: '#6c757d',
+    dark_color: '#6c757d',
     icon: GithubIcon,
   },
   {
@@ -22,6 +24,7 @@ export const ContactsData: Contact[] = [
     tag: '@haxgun',
     name: 'Telegram',
     color: '#24A1DE',
+    dark_color: '#24A1DE',
     icon: TelegramIcon,
   },
   {
@@ -29,6 +32,7 @@ export const ContactsData: Contact[] = [
     tag: '@MAGICXcmd',
     name: 'Twitch',
     color: '#9146ff',
+    dark_color: '#9146ff',
     icon: TwitchIcon,
   },
   {
@@ -36,6 +40,7 @@ export const ContactsData: Contact[] = [
     tag: '@haxguno',
     name: 'X',
     color: '#000000',
+    dark_color: '#ffffff',
     icon: XIcon,
   },
 ]

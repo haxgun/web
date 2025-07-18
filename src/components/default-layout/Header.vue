@@ -20,8 +20,8 @@ const router = useRouter()
           class="group rounded-xl flex justify-between px-3 md:px-5 gap-1 md:gap-2 h-8 md:h-10 items-center cursor-pointer capitalize leading-none relative z-10 transition-colors duration-200"
           :class="[
             route.name === link.name
-              ? 'bg-neutral-200/50 text-zinc-700'
-              : 'text-zinc-400 hover:text-zinc-700',
+              ? 'bg-neutral-200/50 dark:bg-white text-zinc-700 dark:text-black'
+              : 'text-zinc-400 dark:text-zinc-500 hover:text-zinc-700 dark:hover:text-white',
           ]"
         >
           <span>{{ link.label }}</span>

@@ -26,6 +26,7 @@ const route = useRoute()
 //   author: 'MAGICX, misha@valory.su',
 //   keywords: metaKeywords,
 // })
+//
 </script>
 
 <template>

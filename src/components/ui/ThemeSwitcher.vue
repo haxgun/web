@@ -1,44 +1,37 @@
 <script setup lang="ts">
-import { MoonIcon, SunIcon } from 'lucide-vue-next'
-import { onMounted, ref } from 'vue'
+import { useThemeStore } from '@/stores/theme'
+import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-vue-next'
+import { onMounted } from 'vue'
 
-const isDark = ref(false)
+const themeStore = useThemeStore()
 
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-  const appElement = document.getElementById('app')
-
-  if (isDark.value) {
-    appElement?.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    appElement?.classList.remove('dark')
-    localStorage.setItem('theme', 'light')
+const getThemeLabel = () => {
+  switch (themeStore.currentTheme) {
+    case 'light':
+      return 'Switch to dark mode'
+    case 'dark':
+      return 'Switch to system mode'
+    case 'system':
+      return 'Switch to light mode'
   }
 }
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem('theme')
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-
-  isDark.value = savedTheme === 'dark' || (!savedTheme && systemDark)
-
-  const appElement = document.getElementById('app')
-  if (isDark.value) {
-    appElement?.classList.add('dark')
-  } else {
-    appElement?.classList.remove('dark')
-  }
+  themeStore.initTheme()
 })
 </script>
 
 <template>
   <button
-    @click="toggleTheme"
-    class="relative mt-2 p-2 rounded-full w-fit mx-3 hover:bg-neutral-200/50 dark:hover:bg-gray-600 transition-colors duration-200"
-    :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+    @click="themeStore.toggleTheme"
+    class="group relative mt-2 p-2 rounded-full w-fit mx-3 hover:bg-neutral-200/50 dark:hover:bg-white transition-colors duration-200"
+    :aria-label="getThemeLabel()"
   >
-    <SunIcon v-if="!isDark" class="size-5 text-yellow-500" />
-    <MoonIcon v-else class="size-5 text-blue-400" />
+    <SunIcon v-if="themeStore.currentTheme === 'light'" class="size-5 text-yellow-500" />
+    <MoonIcon v-else-if="themeStore.currentTheme === 'dark'" class="size-5 text-blue-400" />
+    <MonitorIcon
+      v-else
+      class="size-5 dark:text-white dark:group-hover:text-black text-black group-hover:text-white transition-colors"
+    />
   </button>
 </template>

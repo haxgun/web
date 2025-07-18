@@ -16,6 +16,7 @@ import ContactsLink from './ContactsLink.vue'
         :icon="contact.icon"
         :tag="contact.tag"
         :color="contact.color"
+        :dark_color="contact.dark_color"
       />
     </SectionContent>
   </Section>

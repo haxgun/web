@@ -46,12 +46,10 @@ async function downloadPDF(): Promise<void> {
       >
         <span v-if="localStorageLocale == 'ru'" class="fi fi-ru" />
         <span v-else class="fi fi-us" />
-        <!-- <English v-if="localStorageLocale == 'ru'" :height="18" />
-        <Russian v-else :height="18" /> -->
       </button>
       <button
         @click="downloadPDF"
-        class="text-sm rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 transition-colors duration-200 capitalize inline-flex gap-2 items-center justify-center p-2"
+        class="text-sm rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 dark:hover:text-white transition-colors duration-200 capitalize inline-flex gap-2 items-center justify-center p-2"
       >
         <Download :size="16" />
         {{ $t('downloadPDF') }}
@@ -217,6 +215,10 @@ async function downloadPDF(): Promise<void> {
 </template>
 
 <style lang="scss" scoped>
+html.dark > .cv {
+  color: #ffffff;
+}
+
 .cv {
   font-family: 'Geist Variable';
   font-optical-sizing: auto;

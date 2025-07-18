@@ -14,7 +14,7 @@ const props = defineProps<Project>()
       <span class="font-base text-neutral-400">{{ props.year }}</span>
     </span>
 
-    <span class="font-medium text-neutral-600">{{ props.title }}</span>
+    <span class="font-medium text-neutral-600 dark:text-white">{{ props.title }}</span>
     <span class="text-neutral-400 text-sm">{{ props.short_description }}</span>
   </a>
 </template>

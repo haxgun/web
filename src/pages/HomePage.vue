@@ -2,24 +2,30 @@
 import { Contacts } from '@/components/contacts'
 import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
-import { GitHubContributions, LinkPreview } from '@/components/ui'
+import { LinkPreview } from '@/components/ui'
 </script>
 
 <template>
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-fit">
     <div class="grow px-5 md:pt-16 flex flex-col">
       <div class="size-full flex flex-col gap-6">
-        <div class="font-semibold text-[2.25em] text-neutral-700">Миша Гусев</div>
+        <div class="font-semibold text-[2.25em] text-neutral-700 dark:text-white">Миша Гусев</div>
         <div class="flex flex-col gap-4">
-          <div class="text-neutral-500">
-            Привет! Я <strong class="font-medium text-neutral-700">full-stack разработчик</strong>,
-            который создаёт
-            <strong class="font-medium text-neutral-700"> современные инструменты</strong>.
+          <div class="text-neutral-500 dark:text-neutral-300">
+            Привет! Я
+            <strong class="font-medium text-neutral-700 dark:text-white"
+              >full-stack разработчик</strong
+            >, который создаёт
+            <strong class="font-medium text-neutral-700 dark:text-white">
+              современные инструменты</strong
+            >.
           </div>
-          <div class="text-neutral-500">
-            В основном занимаюсь <strong class="font-medium text-neutral-700">бекендом</strong>.
-            Создаю
-            <strong class="font-medium text-neutral-700">микросервисы, API и</strong>
+          <div class="text-neutral-500 dark:text-neutral-200">
+            В основном занимаюсь
+            <strong class="font-medium text-neutral-700 dark:text-white">бекендом</strong>. Создаю
+            <strong class="font-medium text-neutral-700 dark:text-white"
+              >микросервисы, API и</strong
+            >
             <LinkPreview
               url="https://core.telegram.org/bots/api"
               class="text-[#24A1DE] hover:bg-[#24A1DE]/5"
@@ -41,8 +47,10 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
               aiogram
             </LinkPreview>
           </div>
-          <div class="text-neutral-500">
-            Для <strong class="font-medium text-neutral-700">фронтенда</strong> использую
+          <div class="text-neutral-500 dark:text-neutral-300">
+            Для
+            <strong class="font-medium text-neutral-700 dark:text-white">фронтенда</strong>
+            использую
             <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/5">
               Vite </LinkPreview
             >,
@@ -71,7 +79,7 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
               Reka UI
             </LinkPreview>
           </div>
-          <div class="text-neutral-500 inline-flex items-center gap-1">
+          <div class="text-neutral-500 dark:text-neutral-300 inline-flex items-center gap-1">
             В настоящее время работаю над
             <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/5">
               <Valory :size="19" />
@@ -87,7 +95,7 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
             </LinkPreview>
           </div>
         </div>
-        <GitHubContributions username="haxgun" />
+        <!-- <GitHubContributions username="haxgun" /> -->
         <Contacts />
         <Projects />
       </div>

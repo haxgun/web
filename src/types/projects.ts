@@ -8,4 +8,5 @@ export interface Project {
   icon?: any
   stage: 'In progress' | 'Done' | 'Deferred'
   dependencies?: string[]
+  color?: string
 }

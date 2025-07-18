@@ -3,7 +3,7 @@
 @import 'non.geist/mono';
 @import 'tw-animate-css';
 
-@custom-variant dark (&: is(.dark *));
+@custom-variant dark (html.dark &);
 
 .font-mono {
   font-family: 'Geist Mono Variable';
@@ -125,9 +125,15 @@
     outline-color: color-mix(#525252 50%, transparent);
   }
 
-  body {
+  html > body {
     font-family: 'Geist Variable';
     background-color: #fff;
-    color: #1c1c1c;
+    color: #111110;
+  }
+
+  html.dark > body {
+    font-family: 'Geist Variable';
+    background-color: #111110;
+    color: #ffffff;
   }
 }

@@ -22,6 +22,7 @@ export const ProjectsData: Project[] = [
       'SQLAlchemy',
       'Docker',
     ],
+    color: '#176BD2',
   },
   {
     year: 2023,
@@ -42,5 +43,6 @@ export const ProjectsData: Project[] = [
       'SQLAlchemy',
       'Docker',
     ],
+    color: '#F60002',
   },
 ]
