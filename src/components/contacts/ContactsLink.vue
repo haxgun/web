@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Contact } from '@/types/contacts'
-import { ArrowRight } from 'lucide-vue-next'
+// import { ArrowRight } from 'lucide-vue-next'
 const props = defineProps<Contact>()
 </script>
 
@@ -11,14 +11,14 @@ const props = defineProps<Contact>()
   >
     <component v-if="props.icon" :is="props.icon" class="size-4" />
     <span>{{ props.name }}</span>
-    <span class="text-[var(--color)]/40 dark:text-[var(--dark-color)]/40 text-sm">{{
+    <!-- <span class="text-[var(--color)]/40 dark:text-[var(--dark-color)]/40 text-sm">{{
       props.tag
     }}</span>
     <span
       class="opacity-0 group-hover:opacity-100 transition-opacity text-neutral-400 inline-flex items-center gap-2"
     >
       <ArrowRight class="size-3" />
-    </span>
+    </span> -->
   </a>
 </template>
 

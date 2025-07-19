@@ -4,6 +4,7 @@ export interface Project {
   short_description: string
   description?: string
   preview?: string
+  thumbnail?: string
   link?: string
   icon?: any
   stage: 'In progress' | 'Done' | 'Deferred'

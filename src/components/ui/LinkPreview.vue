@@ -61,7 +61,10 @@ const handleMouseEnter = async () => {
       </span>
     </HoverCardTrigger>
 
-    <HoverCardContent class="w-80 rounded-lg p-4" side="top">
+    <HoverCardContent
+      class="w-80 rounded-lg p-4 border-[#e5e5e5] dark:border-neutral-600"
+      side="top"
+    >
       <Transition name="fade" mode="out-in">
         <div v-if="loading || error" key="skeleton" class="flex flex-col gap-2">
           <Skeleton class="mb-4 aspect-[120/63] w-full rounded-md border object-cover" />
@@ -70,7 +73,9 @@ const handleMouseEnter = async () => {
         </div>
 
         <div v-else-if="metaData" key="content" class="overflow-hidden">
-          <div class="mb-4 aspect-[120/63] w-full rounded-md border object-cover">
+          <div
+            class="mb-4 aspect-[120/63] w-full rounded-md border border-[#e5e5e5] dark:border-neutral-600 object-cover"
+          >
             <div
               v-if="!metaData.ogImage"
               class="h-full w-full rounded-md flex flex-col justify-center items-center"

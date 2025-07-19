@@ -121,13 +121,12 @@
 
 @layer base {
   * {
-    border-color: #e5e5e5;
     outline-color: color-mix(#525252 50%, transparent);
   }
 
   html > body {
     font-family: 'Geist Variable';
-    background-color: #fff;
+    background-color: #ffffff;
     color: #111110;
   }
 

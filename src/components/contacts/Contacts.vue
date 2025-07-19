@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { Section, SectionContent, SectionHeader } from '@/components/sections'
 import { ContactsData } from '@/data/Contact.data'
-import ContactsLink from './ContactsLink.vue'
+import { ContactsLink } from '.'
 </script>
 
 <template>
   <Section>
     <SectionHeader>Связь</SectionHeader>
-    <SectionContent>
+    <SectionContent variant="inline">
       <ContactsLink
         v-for="contact in ContactsData"
         :key="contact.tag"
