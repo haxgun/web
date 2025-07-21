@@ -1,492 +1,205 @@
 <script setup lang="ts">
-import { useLocalStorage } from '@vueuse/core'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
-import { Download } from 'lucide-vue-next'
-import { useI18n } from 'vue-i18n'
-
-const { locale } = useI18n<{ locale: string }>()
-const localStorageLocale = useLocalStorage<string>('cvLocale', 'en')
-
-async function toggleLanguage(): Promise<void> {
-  locale.value = locale.value === 'en' ? 'ru' : 'en'
-  localStorageLocale.value = locale.value
-}
-
-async function downloadPDF(): Promise<void> {
-  const element = document.querySelector('#cv') as HTMLElement
-  if (!element) return
-
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    scrollX: 0,
-    scrollY: 0,
-    useCORS: true,
-  })
-
-  const imgData = canvas.toDataURL('image/png')
-
-  const pdfWidth = 210
-  const pdfHeight = (canvas.height * pdfWidth) / canvas.width
-
-  const pdf = new jsPDF('p', 'mm', [pdfWidth, pdfHeight])
-  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight)
-
-  pdf.save('resume.pdf')
-}
+import { FreelanceData } from '@/data/cv/Freelance.data'
+import { ProjectsData } from '@/data/cv/Projects.data'
+import { openLink } from '@/lib/utils'
+import { ArrowUpRightIcon, DownloadIcon } from 'lucide-vue-next'
 </script>
 
 <template>
-  <div class="page-cv">
-    <div class="inline-flex gap-1 fixed top-5 right-5 bg-neutral-200/25 rounded-xl p-1.5">
-      <button
-        id="lang"
-        @click="toggleLanguage"
-        class="rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 transition-colors duration-200 capitalize flex flex-col items-center justify-center size-10"
-      >
-        <span v-if="localStorageLocale == 'ru'" class="fi fi-ru" />
-        <span v-else class="fi fi-us" />
-      </button>
-      <button
-        @click="downloadPDF"
-        class="text-sm rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 dark:hover:text-white transition-colors duration-200 capitalize inline-flex gap-2 items-center justify-center p-2"
-      >
-        <Download :size="16" />
-        {{ $t('downloadPDF') }}
-      </button>
-    </div>
-    <div id="cv" class="cv">
-      <header>
-        <section class="info">
-          <h1>{{ $t('name') }}</h1>
-          <h2>{{ $t('profession') }}</h2>
-          <p>{{ $t('age') }}</p>
-        </section>
-        <section class="contact">
-          <p>
-            <strong>{{ $t('contact.email') }}: </strong>
-            <a href="mailto:haxgun@vk.com">misha@valory.su</a> — {{ $t('contact.preferred') }}
-          </p>
-          <p>
-            <strong>{{ $t('contact.phone') }}:</strong> +7 (963) 882 14-38
-          </p>
-          <p>
-            <strong>{{ $t('contact.telegram') }}:</strong> <a href="https://t.me/haxgun">@haxgun</a>
-          </p>
-          <p>
-            <strong>{{ $t('contact.github') }}: </strong>
-            <a href="https://github.com/haxgun">github.com/haxgun</a>
-          </p>
-          <p>
-            <strong>{{ $t('contact.website') }}:</strong> <a href="https://haxgun.ru">haxgun.ru</a>
-          </p>
-          <p>
-            <strong>{{ $t('contact.city') }}</strong>
-          </p>
-        </section>
-      </header>
-      <div class="container">
-        <div class="left">
-          <section class="about">
-            <p v-html="$t('about')"></p>
-          </section>
-          <section class="experience">
-            <h3>{{ $t('experience.title') }}</h3>
-            <div class="job">
-              <h4>{{ $t('experience.news_autopost.company') }}</h4>
-              <h5>{{ $t('experience.news_autopost.duration') }}</h5>
-              <ul>
-                <li>{{ $t('experience.news_autopost.tasks[0]') }}</li>
-                <li>{{ $t('experience.news_autopost.tasks[1]') }}</li>
-                <li>{{ $t('experience.news_autopost.tasks[2]') }}</li>
-              </ul>
-            </div>
-            <div class="job">
-              <h4>{{ $t('experience.wb_telegram_bot.company') }}</h4>
-              <h5>{{ $t('experience.wb_telegram_bot.duration') }}</h5>
-              <ul>
-                <li>{{ $t('experience.wb_telegram_bot.tasks[0]') }}</li>
-                <li>{{ $t('experience.wb_telegram_bot.tasks[1]') }}</li>
-                <li>{{ $t('experience.wb_telegram_bot.tasks[2]') }}</li>
-              </ul>
-            </div>
-            <div class="job">
-              <h4>{{ $t('experience.monitoring_chat_bot.company') }}</h4>
-              <h5>{{ $t('experience.monitoring_chat_bot.duration') }}</h5>
-              <ul>
-                <li>{{ $t('experience.monitoring_chat_bot.tasks[0]') }}</li>
-                <li>{{ $t('experience.monitoring_chat_bot.tasks[1]') }}</li>
-                <li>{{ $t('experience.monitoring_chat_bot.tasks[2]') }}</li>
-              </ul>
-            </div>
-            <div class="job">
-              <h4>{{ $t('experience.valory.company') }}</h4>
-              <h5>{{ $t('experience.valory.duration') }}</h5>
-              <ul>
-                <li>{{ $t('experience.valory.tasks[0]') }}</li>
-                <li>{{ $t('experience.valory.tasks[1]') }}</li>
-                <li>{{ $t('experience.valory.tasks[2]') }}</li>
-              </ul>
-            </div>
-            <div class="job">
-              <h4>{{ $t('experience.discordBot.company') }}</h4>
-              <h5>{{ $t('experience.discordBot.duration') }}</h5>
-              <ul>
-                <li>{{ $t('experience.discordBot.tasks[0]') }}</li>
-                <li>{{ $t('experience.discordBot.tasks[1]') }}</li>
-                <li>{{ $t('experience.discordBot.tasks[2]') }}</li>
-              </ul>
-            </div>
-          </section>
-          <section class="education">
-            <h3>{{ $t('education.title') }}</h3>
-            <div class="item">
-              <h4>
-                <strong>{{ $t('education.degree') }}</strong>
-              </h4>
-              <h4>{{ $t('education.university') }}</h4>
-              <h5>{{ $t('education.period') }}</h5>
-            </div>
-          </section>
-          <section class="courses">
-            <h3>{{ $t('courses.title') }}</h3>
-            <div class="item">
-              <h4>
-                <strong>{{ $t('courses.items[0].name') }}</strong>
-              </h4>
-              <h4>
-                {{ $t('courses.items[0].organization') }}
-              </h4>
-            </div>
-            <div class="item">
-              <h4>
-                <strong>{{ $t('courses.items[1].name') }}</strong>
-              </h4>
-              <h4>
-                {{ $t('courses.items[1].organization') }}
-              </h4>
-            </div>
-          </section>
+  <main id="cv" class="max-w-5xl p-10 antialiased w-full mx-auto">
+    <div class="flex-1 flex md:flex-row sm:flex-col md:gap-20 sm:gap-10">
+      <!-- Left Side -->
+      <div class="flex flex-col gap-8">
+        <!-- Hero -->
+        <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-2">
+            <span class="text-3xl font-bold">Миша Гусев</span>
+            <span class="text-xl">Младший Full-Stack Разработчик</span>
+            <span class="text-sm">Мужчина, 23 года, 31 декабря 2001 г.</span>
+          </div>
+          <ul class="flex flex-col gap-2 font-medium">
+            <li>
+              Создаю масштабируемые REST API с использованием FastAPI, а также разрабатываю
+              современные веб-приложения на Vue.js с TailwindCSS.
+            </li>
+            <li>
+              Постоянно изучаю новые технологии и улучшаю качество кода через рефакторинг и
+              документирование
+            </li>
+            <li>Готов применить свои навыки в сложных проектах.</li>
+          </ul>
         </div>
-        <div class="right">
-          <section class="skills">
-            <h3>{{ $t('skills.title') }}</h3>
-            <ul>
-              <li>{{ $t('skills.items[0]') }}</li>
-              <li>{{ $t('skills.items[1]') }}</li>
-              <li>{{ $t('skills.items[2]') }}</li>
-              <li>{{ $t('skills.items[3]') }}</li>
-            </ul>
-          </section>
-          <section class="languages">
-            <h3>{{ $t('languages.title') }}</h3>
-            <ul>
-              <li>{{ $t('languages.items[0]') }}</li>
-              <li>{{ $t('languages.items[1]') }}</li>
-            </ul>
-          </section>
-          <section class="tools">
-            <h3>{{ $t('tools.title') }}</h3>
-            <ul>
-              <li>{{ $t('tools.items[0]') }}</li>
-              <li>{{ $t('tools.items[1]') }}</li>
-              <li>{{ $t('tools.items[2]') }}</li>
-              <li>{{ $t('tools.items[3]') }}</li>
-              <li>{{ $t('tools.items[4]') }}</li>
-              <li>{{ $t('tools.items[5]') }}</li>
-              <li>{{ $t('tools.items[6]') }}</li>
-              <li>{{ $t('tools.items[7]') }}</li>
-              <li>{{ $t('tools.items[8]') }}</li>
-            </ul>
-          </section>
-          <section class="hobbies">
-            <h3>{{ $t('hobbies.title') }}</h3>
-            <ul>
-              <li>{{ $t('hobbies.items[0]') }}</li>
-              <li>{{ $t('hobbies.items[1]') }}</li>
-              <li>{{ $t('hobbies.items[2]') }}</li>
-              <li>{{ $t('hobbies.items[3]') }}</li>
-            </ul>
-          </section>
+        <!-- Freelance -->
+        <div class="flex flex-col gap-4">
+          <span class="font-bold text-xl">Фриланс</span>
+          <div class="flex flex-col gap-5">
+            <div
+              class="flex flex-col gap-3"
+              v-for="freelance in FreelanceData"
+              :key="freelance.title"
+            >
+              <div class="flex flex-col gap-px">
+                <span class="font-bold text-lg">{{ freelance.title }}</span>
+                <span class="text-sm">{{ freelance.description }}</span>
+                <span class="text-xs italic uppercase mt-1">{{ freelance.year }} г.</span>
+              </div>
+              <ul class="flex flex-col gap-2 list-disc ml-4">
+                <li class="pl-1" v-for="(item, index) in freelance.developed" :key="index">
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Projects -->
+        <div class="flex flex-col gap-4">
+          <span class="font-bold text-xl">Собственные проекты</span>
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3" v-for="project in ProjectsData" :key="project.title">
+              <div class="flex flex-col gap-px">
+                <div class="inline-flex gap-2 items-center">
+                  <span class="font-bold text-lg">{{ project.title }}</span>
+                  <span
+                    class="font-medium text-sm text-neutral-400"
+                    v-for="link in project.links"
+                    :key="link"
+                    >{{ link }}</span
+                  >
+                </div>
+                <span class="text-sm">{{ project.description }}</span>
+                <span class="text-xs italic uppercase mt-1">{{ project.year }}</span>
+              </div>
+              <ul class="flex flex-col gap-2 list-disc ml-4">
+                <li class="pl-1" v-for="(item, index) in project.developed" :key="index">
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Education -->
+        <div class="flex flex-col gap-4">
+          <span class="font-bold text-xl">Образование</span>
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-px">
+                <span class="font-bold text-lg"
+                  >Бакалавр, Информатика и вычислительная техника</span
+                >
+                <span class="text-base">
+                  Пермский национальный исследовательский политехнический университет
+                </span>
+                <span class="text-xs italic uppercase mt-1">Сентябрь 2019 - Июль 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Courses -->
+        <div class="flex flex-col gap-4">
+          <span class="font-bold text-xl">Курсы</span>
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-px">
+                <span class="font-bold text-lg">"Поколение Python": курс для начинающих</span>
+                <span class="text-base"> Школа BEEGEEK </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-px">
+                <span class="font-bold text-lg">Программирование на Python</span>
+                <span class="text-base"> Bioinformatics Institute </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Right Side -->
+      <div class="flex flex-col gap-5 w-lg">
+        <div class="flex flex-col gap-10">
+          <!-- Contacts -->
+          <ul class="flex flex-col gap-1 w-full">
+            <li class="inline-flex gap-1 items-center">
+              <a class="hover:underline" href="mailto:misha@valory.su" target="_blank">
+                misha@valory.su
+              </a>
+              <ArrowUpRightIcon class="size-4" />
+            </li>
+            <li class="inline-flex gap-1 items-center">
+              <a class="hover:underline" href="https://t.me/haxgun" target="_blank">
+                t.me/haxgun
+              </a>
+              <ArrowUpRightIcon class="size-4" />
+            </li>
+            <li class="inline-flex gap-1 items-center">
+              <a class="hover:underline" href="https://github.com/haxgun" target="_blank">
+                github.com/haxgun
+              </a>
+              <ArrowUpRightIcon class="size-4" />
+            </li>
+            <li class="inline-flex gap-1 items-center">
+              <a class="hover:underline" href="https://haxgun.ru" target="_blank">haxgun.ru</a>
+            </li>
+            <li>Пермь</li>
+          </ul>
+
+          <!-- Skills -->
+          <div class="flex flex-col gap-3">
+            <div class="font-bold text-xl">Навыки</div>
+            <ul class="flex flex-col list-disc ml-3 gap-2">
+              <li>HTML5, CSS, SCSS, SASS, TailwindCSS</li>
+              <li>JavaScript, TypeScript</li>
+              <li>Python, Async/Await</li>
+              <li>Windows, macOS, Linux</li>
+            </ul>
+          </div>
+          <!-- Languages -->
+          <div class="flex flex-col gap-3">
+            <div class="font-bold text-xl">Языки</div>
+            <ul class="flex flex-col list-disc ml-3 gap-2">
+              <li>Английский язык - B1</li>
+              <li>Русский - Родной</li>
+            </ul>
+          </div>
+          <!-- Instruments -->
+          <div class="flex flex-col gap-3">
+            <div class="font-bold text-xl">Инструменты</div>
+            <ul class="flex flex-col list-disc ml-3 gap-2">
+              <li>Git, GitHub</li>
+              <li>Figma, Photoshop</li>
+              <li>PyCharm, VSCode, Zed code</li>
+              <li>Django, DRF, FastAPI, Flask</li>
+              <li>Vue 3, Nuxt 3 и 4</li>
+              <li>Redis, PostgreSQL, SQLite, SQLModel, SQLAlchemy ORM</li>
+              <li>aiogram, pyrogram, aiohttp, pycord</li>
+              <li>Docker, Docker Compose, Nginx</li>
+              <li>Bash, Zsh</li>
+            </ul>
+          </div>
+          <!-- Hobbies -->
+          <div class="flex flex-col gap-3">
+            <div class="font-bold text-xl">Хобби</div>
+            <ul class="flex flex-col list-disc ml-3 gap-2">
+              <li>Баскетбол (активное участие в местных турнирах)</li>
+              <li>Чтение технической литературы и художественных произведений</li>
+              <li>Прослушивание музыки различных жанров</li>
+              <li>Изучение новых технологий и фреймворков</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="inline-flex gap-1 fixed top-5 right-5 bg-neutral-200/25 rounded-xl p-1.5">
+        <button
+          @click="openLink('https://drive.google.com/file/d/1Lkq-FMPODoL7mP0x5DOlYNpKE0Uoct8X')"
+          class="text-sm rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 dark:hover:text-white transition-colors duration-200 capitalize inline-flex gap-2 items-center justify-center py-2 px-3"
+        >
+          <DownloadIcon :size="16" />
+          Скачать PDF
+        </button>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
-
-<style lang="scss" scoped>
-html.dark > .cv {
-  color: #ffffff;
-}
-
-.cv {
-  font-family: 'Geist Variable';
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.6;
-  font-size: 16px;
-  color: #121212;
-  padding: 40px 60px;
-  max-width: 1000px;
-  margin: auto;
-  margin-bottom: 40px;
-
-  header {
-    text-align: left;
-    margin-bottom: 30px;
-
-    p {
-      font-size: 13.6px; // 0.85em
-      margin: 5px 0 0 0;
-    }
-
-    section {
-      margin-top: 30px;
-    }
-
-    .contact {
-      p,
-      section p {
-        font-size: 18px; // 1em
-        line-height: 24px;
-        margin: 5px 0;
-
-        strong {
-          font-weight: 600;
-        }
-      }
-
-      a {
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-
-  .container {
-    display: grid;
-    grid-template-columns: 570px 250px;
-    grid-template-rows: auto;
-    grid-template-areas: '.left .right';
-    grid-gap: 50px;
-
-    .left {
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 31px;
-      display: flex;
-
-      flex-direction: column;
-      gap: 42px;
-
-      p {
-        margin: 0;
-      }
-
-      .experience {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-
-        h3 {
-          font-size: 21px; // 1.3em
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-
-          margin: 0;
-          padding: 0;
-        }
-
-        h4 {
-          font-size: 21px; // 1.3em
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-
-          margin: 0;
-          padding: 0;
-        }
-
-        h5 {
-          font-size: 12px; // 0.75em
-          font-style: italic;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.16px;
-          text-transform: uppercase;
-
-          margin: 8px 0 0 0;
-          padding: 0;
-        }
-
-        ul {
-          margin: 12px 0 0 0;
-          line-height: 32px;
-          color: #454545;
-          padding: 0 0 0 18px;
-
-          li {
-            position: relative;
-            font-size: 18px; // 1em
-          }
-          li::after {
-            position: absolute;
-            top: -9px;
-            left: -20px;
-            content: '-';
-            display: block;
-            margin-top: 8px;
-          }
-        }
-      }
-
-      .courses,
-      .education {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        .item {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-        h3 {
-          font-size: 21px; // 1.3em
-          font-style: normal;
-          font-weight: 700;
-          line-height: normal;
-
-          margin: 0;
-          padding: 0;
-        }
-
-        h4 {
-          font-size: 21px; // 1.3em
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-
-          margin: 0;
-          padding: 0;
-        }
-
-        h5 {
-          font-size: 14px;
-          font-style: italic;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.16px;
-          text-transform: uppercase;
-
-          margin: 8px 0 0 0;
-          padding: 0;
-        }
-      }
-    }
-
-    .right {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-
-      h3 {
-        font-size: 21px; // 1.3em
-        padding: 0;
-        margin: 0;
-      }
-
-      ul {
-        margin: 12px 0;
-        line-height: 32px;
-        color: #454545;
-        padding-left: 18px;
-
-        li {
-          position: relative;
-          font-size: 16px;
-          padding-bottom: 5px; // 1em
-        }
-        li::after {
-          position: absolute;
-          top: -9px;
-          left: -20px;
-          content: '-';
-          display: block;
-          margin-top: 8px;
-        }
-      }
-    }
-  }
-
-  h1 {
-    font-size: 41.6px; // 2.6em
-    font-weight: bold;
-    margin: 0;
-    height: 1.4em;
-  }
-
-  h2 {
-    font-size: 21px; // 1.3em
-    font-weight: normal;
-    margin: 0;
-  }
-
-  section {
-    h3 {
-      font-size: 22.4px; // 1.4em
-      font-weight: bold;
-      margin-bottom: 15px;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    &.job {
-      h4 {
-        font-size: 17.6px; // 1.1em
-        font-weight: bold;
-        margin: 10px 0 5px;
-        color: #121212;
-      }
-
-      ul {
-        margin-left: 20px;
-        list-style: disc;
-
-        li {
-          margin: 5px 0;
-        }
-      }
-    }
-
-    &.education,
-    &.courses {
-      p,
-      ul li {
-        font-size: 15.2px; // 0.95em
-      }
-    }
-
-    &.languages,
-    &.tools,
-    &.hobbies {
-      font-size: 15.2px; // 0.95em
-    }
-  }
-
-  a {
-    color: #000;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-</style>
