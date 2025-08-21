@@ -3,29 +3,6 @@ import { type Project } from '@/types/projects'
 
 export const ProjectsData: Project[] = [
   {
-    year: 2025,
-    title: 'NexusQX',
-    short_description: 'Short description for NexusQX',
-    description: 'Description for NexusQX',
-    preview: '/projects/previews/nexusqx.png',
-    thumbnail: '/projects/thumbnails/nexusqx.png',
-    link: 'https://example.com/project1',
-    stage: 'In progress',
-    icon: NexusQX,
-    dependencies: [
-      'Mazban',
-      'FastAPI',
-      'Aiogram',
-      'Nuxt 4',
-      'TypeScript',
-      'PostgreSQL',
-      'Redis',
-      'SQLAlchemy',
-      'Docker',
-    ],
-    color: '#176BD2',
-  },
-  {
     year: 2023,
     title: 'VALORY',
     short_description: 'Мультиинструмент для стримеров',
@@ -48,3 +25,28 @@ export const ProjectsData: Project[] = [
     color: '#000000',
   },
 ]
+
+
+// {
+//   year: 2025,
+//   title: 'NexusQX',
+//   short_description: 'Short description for NexusQX',
+//   description: 'Description for NexusQX',
+//   preview: '/projects/previews/nexusqx.png',
+//   thumbnail: '/projects/thumbnails/nexusqx.png',
+//   link: 'https://example.com/project1',
+//   stage: 'In progress',
+//   icon: NexusQX,
+//   dependencies: [
+//     'Mazban',
+//     'FastAPI',
+//     'Aiogram',
+//     'Nuxt 4',
+//     'TypeScript',
+//     'PostgreSQL',
+//     'Redis',
+//     'SQLAlchemy',
+//     'Docker',
+//   ],
+//   color: '#176BD2',
+// },
