@@ -2,15 +2,18 @@
 import { Contacts } from '@/components/contacts'
 import { NexusQX, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
-import { LinkPreview } from '@/components/ui'
+import { GitHubContributions, LinkPreview } from '@/components/ui'
 </script>
 
 <template>
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-[calc(100vh-3rem)]">
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
       <div class="flex flex-col gap-6">
-        <div class="font-semibold text-center text-[2.25em] text-neutral-700 dark:text-white">
+        <div
+          class="inline-flex gap-3 font-semibold text-[2.25em] pointer-events-none text-neutral-700 dark:text-white"
+        >
           Миша Гусев
+          <img src="/favicon.png" alt="Миша Гусев" class="w-12 h-12 mr-2" />
         </div>
         <div class="flex flex-col gap-4">
           <div class="text-neutral-500 dark:text-neutral-300">
@@ -97,7 +100,7 @@ import { LinkPreview } from '@/components/ui'
             </LinkPreview>
           </div>
         </div>
-        <!-- <GitHubContributions username="haxgun" /> -->
+        <GitHubContributions username="haxgun" />
         <Contacts />
         <Projects />
       </div>

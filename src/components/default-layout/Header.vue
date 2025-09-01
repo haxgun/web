@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ThemeSwitcher } from '@/components/ui'
 import { HeaderLinks } from '@/data/HeaderLinks.data'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const router = useRouter()
 </script>
 
 <template>
@@ -13,10 +12,10 @@ const router = useRouter()
   >
     <div class="p-5 flex flex-col items-end">
       <div class="w-full font-medium text-sm -ml-3 flex md:flex-col relative">
-        <a
+        <RouterLink
           v-for="link in HeaderLinks"
           :key="link.name"
-          @click="router.push({ name: link.name })"
+          :to="{ name: link.name }"
           class="group rounded-xl flex justify-between px-3 md:px-5 gap-1 md:gap-2 h-8 md:h-10 items-center cursor-pointer capitalize leading-none relative z-10 transition-colors duration-200"
           :class="[
             route.name === link.name
@@ -25,7 +24,7 @@ const router = useRouter()
           ]"
         >
           <span>{{ link.label }}</span>
-        </a>
+        </RouterLink>
         <ThemeSwitcher />
       </div>
     </div>

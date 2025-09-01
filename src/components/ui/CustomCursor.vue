@@ -34,13 +34,13 @@ onUnmounted(() => {
   <div class="pointer-events-none fixed inset-0 z-50">
     <div
       ref="cursorDot"
-      class="absolute size-4 rounded-full border-2 bg-transparent border-neutral-500/80 transition-all duration-150 ease-out"
+      class="absolute size-4 rounded-full border-2 bg-transparent border-neutral-500/80"
     />
   </div>
 </template>
 
 <style>
-* {
+/** {
   cursor: none !important;
-}
+}*/
 </style>

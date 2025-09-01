@@ -17,7 +17,8 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: () => import('@/pages/ProjectsPage.vue'),
+      redirect: { name: 'home' },
+      meta: { hideInHeader: true },
     },
     {
       path: '/uses',

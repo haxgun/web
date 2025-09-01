@@ -48,8 +48,9 @@ const handleMouseEnter = async () => {
 
 <template>
   <HoverCard>
-    <HoverCardTrigger @mouseenter="handleMouseEnter" @click="openLink(props.url)" as-child>
-      <span
+    <HoverCardTrigger @mouseenter="handleMouseEnter" as-child>
+      <a
+        :href="props.url"
         :class="
           cn(
             'cursor-pointer font-medium gap-1 py-px px-1 hover:bg-neutral-100/60 hover:rounded-sm transition-all inline-flex items-center',
@@ -58,7 +59,7 @@ const handleMouseEnter = async () => {
         "
       >
         <slot />
-      </span>
+      </a>
     </HoverCardTrigger>
 
     <HoverCardContent
