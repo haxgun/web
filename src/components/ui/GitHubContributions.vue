@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { GithubIcon } from '@/components/icons/socials'
-import { type ContributionDay, type ContributionWeek, type ContributionsData } from '@/types/github'
+import {
+  type ContributionDay,
+  type ContributionWeek,
+  type ContributionsData,
+} from '@/types/github.type'
 import { computed, onMounted, ref } from 'vue'
 
 const props = defineProps<{ username: string }>()
@@ -101,7 +105,7 @@ onMounted(async () => {
             :key="dayIndex"
             class="size-[11.5px] rounded-[3px] cursor-pointer transition-all duration-100"
             :class="{
-              'bg-neutral-100 hover:bg-neutral-200': day.level === 0,
+              'bg-neutral-900 hover:bg-neutral-950': day.level === 0,
               'bg-green-900 hover:bg-green-800': day.level === 1,
               'bg-green-700 hover:bg-green-600': day.level === 2,
               'bg-green-500 hover:bg-green-400': day.level === 3,
@@ -119,7 +123,7 @@ onMounted(async () => {
         <div
           v-for="i in 371"
           :key="i"
-          class="size-[11.5px] rounded-[3px] bg-neutral-100 animate-pulse"
+          class="size-[11.5px] rounded-[3px] bg-neutral-900 animate-pulse"
         />
       </div>
     </div>

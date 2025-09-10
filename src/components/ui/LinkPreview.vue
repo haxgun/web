@@ -15,8 +15,6 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  text: '',
-  class: '',
   showIcon: true,
 })
 

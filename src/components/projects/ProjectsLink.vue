@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { type Project } from '@/types/projects'
+import type { IProject } from '@/types/projects.type'
 import { ProjectStatus } from '.'
-const props = defineProps<Project>()
+const props = defineProps<IProject>()
 </script>
 
 <template>

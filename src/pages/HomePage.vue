@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Contacts } from '@/components/contacts'
-import { NexusQX, Valory } from '@/components/icons/logotypes'
+import { Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
 import { GitHubContributions, LinkPreview } from '@/components/ui'
 </script>
@@ -27,7 +27,8 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
           </div>
           <div class="text-neutral-500 dark:text-neutral-200">
             В основном занимаюсь
-            <strong class="font-medium text-neutral-700 dark:text-white">бекендом</strong>. Создаю
+            <strong class="font-medium text-neutral-700 dark:text-white">бекендом</strong>.<br />
+            Создаю
             <strong class="font-medium text-neutral-700 dark:text-white"
               >микросервисы, API и</strong
             >
@@ -89,14 +90,6 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
             <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/5">
               <Valory :size="19" />
               Valory
-            </LinkPreview>
-            и
-            <LinkPreview
-              url="https://github.com/NexusQX"
-              class="text-[#176BD2] hover:bg-[#176BD2]/5"
-            >
-              <NexusQX :size="19" />
-              NexusQX
             </LinkPreview>
           </div>
         </div>
