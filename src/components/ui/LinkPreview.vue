@@ -60,10 +60,7 @@ const handleMouseEnter = async () => {
       </a>
     </HoverCardTrigger>
 
-    <HoverCardContent
-      class="w-80 rounded-lg p-4 border-[#e5e5e5] dark:border-neutral-600"
-      side="top"
-    >
+    <HoverCardContent class="w-80 rounded-lg p-4 border-neutral-800" side="top">
       <Transition name="fade" mode="out-in">
         <div v-if="loading || error" key="skeleton" class="flex flex-col gap-2">
           <Skeleton class="mb-4 aspect-[120/63] w-full rounded-md border object-cover" />
@@ -73,7 +70,7 @@ const handleMouseEnter = async () => {
 
         <div v-else-if="metaData" key="content" class="overflow-hidden">
           <div
-            class="mb-4 aspect-[120/63] w-full rounded-md border border-[#e5e5e5] dark:border-neutral-600 object-cover"
+            class="mb-4 aspect-[120/63] w-full rounded-md border border-neutral-800 object-cover"
           >
             <div
               v-if="!metaData.ogImage"
@@ -92,15 +89,12 @@ const handleMouseEnter = async () => {
           <div class="flex flex-col gap-2">
             <h3
               @click="openLink(props.url)"
-              class="cursor-pointer line-clamp-1 text-sm font-semibold text-neutral-900 dark:text-white border-b border-dashed w-fit"
+              class="cursor-pointer line-clamp-1 text-sm font-semibold text-white border-b border-dashed w-fit"
             >
               {{ metaData.title || repoName }}
             </h3>
 
-            <p
-              v-if="metaData.description"
-              class="line-clamp-3 text-xs text-neutral-800 dark:text-[#CECECE]"
-            >
+            <p v-if="metaData.description" class="line-clamp-3 text-xs text-[#CECECE]">
               {{ metaData.description }}
             </p>
           </div>

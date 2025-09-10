@@ -34,21 +34,21 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
             >
             <LinkPreview
               url="https://core.telegram.org/bots/api"
-              class="text-[#24A1DE] hover:bg-[#24A1DE]/5"
+              class="text-[#24A1DE] hover:bg-[#24A1DE]/15"
             >
               Telegram ботов
             </LinkPreview>
             с использованием
             <LinkPreview
               url="https://fastapi.tiangolo.com/"
-              class="text-[#009485] hover:bg-[#009485]/5"
+              class="text-[#009485] hover:bg-[#009485]/15"
             >
               FastAPI
             </LinkPreview>
             и
             <LinkPreview
               url="https://github.com/aiogram/aiogram"
-              class="text-[#24A1DE] hover:bg-[#24A1DE]/5"
+              class="text-[#24A1DE] hover:bg-[#24A1DE]/15"
             >
               aiogram
             </LinkPreview>
@@ -57,37 +57,40 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
             Для
             <strong class="font-medium text-neutral-700 dark:text-white">фронтенда</strong>
             использую
-            <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/5">
+            <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/15">
               Vite </LinkPreview
             >,
             <LinkPreview
               url="https://github.com/vuejs/core"
-              class="text-[#41B883] hover:bg-[#41B883]/5"
+              class="text-[#41B883] hover:bg-[#41B883]/15"
             >
               Vue 3 </LinkPreview
             >,
             <LinkPreview
               url="https://github.com/vuejs/pinia"
-              class="text-[#ECB732] hover:bg-[#ECB732]/5"
+              class="text-[#ECB732] hover:bg-[#ECB732]/15"
             >
               Pinia </LinkPreview
             >,
             <LinkPreview
               url="https://github.com/vuejs/router"
-              class="text-[#34495E] hover:bg-[#34495E]/5"
+              class="text-[#34495E] hover:bg-[#34495E]/15"
             >
               Vue Router </LinkPreview
             >,
-            <LinkPreview url="https://tailwindcss.com/" class="text-[#38BDF8] hover:bg-[#38BDF8]/5">
+            <LinkPreview
+              url="https://tailwindcss.com/"
+              class="text-[#38BDF8] hover:bg-[#38BDF8]/15"
+            >
               TailwindCSS </LinkPreview
             >и
-            <LinkPreview url="https://reka-ui.com/" class="text-[#30C196] hover:bg-[#30C196]/5">
+            <LinkPreview url="https://reka-ui.com/" class="text-[#30C196] hover:bg-[#30C196]/15">
               Reka UI
             </LinkPreview>
           </div>
           <div class="text-neutral-500 dark:text-neutral-300 inline-flex items-center gap-1">
             В настоящее время работаю над
-            <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/5">
+            <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/15">
               <Valory :size="19" />
               Valory
             </LinkPreview>

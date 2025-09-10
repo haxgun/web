@@ -5,7 +5,7 @@ const props = defineProps<IContact>()
 
 <template>
   <a
-    class="group text-[var(--color)] dark:text-[var(--dark-color)] hover:bg-[var(--color)]/5 hover:dark:bg-[var(--dark-color)]/5 w-fit cursor-pointer font-medium gap-2 py-px px-2 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
+    class="contact-link group hover:bg-[var(--color)]/15 w-fit cursor-pointer font-medium gap-2 py-1 px-2 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
     :href="props.url"
     :style="{ color: props.color }"
   >
@@ -13,3 +13,9 @@ const props = defineProps<IContact>()
     <span>{{ props.name }}</span>
   </a>
 </template>
+
+<style scoped>
+.contact-link {
+  --color: v-bind(props.color);
+}
+</style>
