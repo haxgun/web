@@ -12,6 +12,12 @@ const router = useRouter()
   <Section>
     <SectionContent variant="inline">
       <ContactsLink
+        :url="router.resolve({ name: 'cv' }).href"
+        name="Резюме"
+        :icon="Certificate01Icon"
+        color="#F6C322"
+      />
+      <ContactsLink
         v-for="contact in ContactsData"
         :key="contact.tag"
         :url="contact.url"
@@ -19,12 +25,6 @@ const router = useRouter()
         :icon="contact.icon"
         :tag="contact.tag"
         :color="contact.color"
-      />
-      <ContactsLink
-        :url="router.resolve({ name: 'cv' }).href"
-        name="Резюме"
-        :icon="Certificate01Icon"
-        color="white"
       />
     </SectionContent>
   </Section>

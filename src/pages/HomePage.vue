@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { Footer } from '@/components'
 import { Contacts } from '@/components/contacts'
 import { Verify } from '@/components/icons'
-import { Valory } from '@/components/icons/logotypes'
+import { Twir, Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
 import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
 import { useProfileAnimation } from '@/composables/useProfileAnimation'
@@ -14,6 +15,7 @@ const contactsRef = ref<HTMLElement>()
 const descriptionRefs = ref<HTMLElement[]>([])
 const githubRef = ref<HTMLElement>()
 const projectsRef = ref<HTMLElement>()
+const footerRef = ref<HTMLElement>()
 
 const { animateProfile } = useProfileAnimation()
 
@@ -24,8 +26,6 @@ const setDescriptionRef = (el: HTMLElement | null, index: number) => {
 }
 
 onMounted(() => {
-  console.log('Description refs:', descriptionRefs.value)
-
   const elements = {
     photo: photoRef.value,
     name: nameRef.value,
@@ -34,9 +34,9 @@ onMounted(() => {
     descriptions: descriptionRefs.value.filter(Boolean),
     github: githubRef.value,
     projects: projectsRef.value,
+    footer: footerRef.value,
   }
 
-  console.log('All elements for animation:', elements)
   animateProfile(elements)
 })
 </script>
@@ -141,6 +141,15 @@ onMounted(() => {
               Valory
             </LinkPreview>
           </div>
+
+          <div :ref="(el) => setDescriptionRef(el, 4)" class="inline-flex items-center gap-1">
+            Также занимаюсь контребьюцией в
+            <LinkPreview url="https://twir.app/" class="text-[#4F69FD] hover:bg-[#4F69FD]/15">
+              <Twir :size="19" />
+              Twir
+            </LinkPreview>
+            и другие...
+          </div>
         </div>
 
         <div ref="githubRef">
@@ -149,6 +158,9 @@ onMounted(() => {
 
         <div ref="projectsRef">
           <Projects />
+        </div>
+        <div ref="footerRef">
+          <Footer />
         </div>
       </div>
     </div>

@@ -9,24 +9,29 @@ interface ProfileElements {
   descriptions: HTMLElement[]
   github?: HTMLElement
   projects?: HTMLElement
+  footer?: HTMLElement
 }
 
 export function useProfileAnimation() {
   let masterTimeline: gsap.core.Timeline
 
   const animateProfile = (elements: ProfileElements) => {
-    const { photo, name, role, contacts, descriptions, github, projects } = elements
+    const { photo, name, role, contacts, descriptions, github, projects, footer } = elements
 
-    console.log('Starting animation with descriptions:', descriptions.length) // Отладка
-
-    const allElements = [photo, name, role, contacts, ...descriptions, github, projects].filter(
-      Boolean,
-    ) as HTMLElement[]
+    const allElements = [
+      photo,
+      name,
+      role,
+      contacts,
+      ...descriptions,
+      github,
+      projects,
+      footer,
+    ].filter(Boolean) as HTMLElement[]
 
     console.log('Total elements to animate:', allElements.length) // Отладка
 
     if (allElements.length === 0) {
-      console.warn('No elements found for animation!')
       return
     }
 
@@ -82,8 +87,6 @@ export function useProfileAnimation() {
     }
 
     if (descriptions.length > 0) {
-      console.log('Animating descriptions:', descriptions) // Отладка
-
       masterTimeline.to(
         descriptions,
         {
@@ -97,14 +100,9 @@ export function useProfileAnimation() {
             amount: 1.2,
             from: 'start',
           },
-          onComplete: () => {
-            console.log('✅ Descriptions animation completed!')
-          },
         },
         '-=0.3',
       )
-    } else {
-      console.warn('⚠️ No descriptions found for animation!')
     }
 
     if (github) {
@@ -132,11 +130,23 @@ export function useProfileAnimation() {
           scale: 1,
           duration: 1.2,
           ease: 'back.out(1.7)',
-          onComplete: () => {
-            console.log('🎉 Profile animation completed!')
-          },
         },
         '-=0.8',
+      )
+    }
+
+    if (footer) {
+      masterTimeline.to(
+        footer,
+        {
+          filter: 'blur(0px)',
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: 'back.out(1.7)',
+        },
+        '-=0.2',
       )
     }
   }
