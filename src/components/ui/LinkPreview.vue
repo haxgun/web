@@ -51,7 +51,7 @@ const handleMouseEnter = async () => {
         :href="props.url"
         :class="
           cn(
-            'cursor-pointer font-medium gap-1 py-px px-1 hover:bg-neutral-100/60 hover:rounded-sm transition-all inline-flex items-center',
+            'cursor-pointer font-medium gap-1 py-px px-1 hover:bg-neutral-100/60 hover:rounded-sm transition-all inline-flex items-center active:scale-95',
             props.class,
           )
         "
