@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Section, SectionContent, SectionHeader } from '@/components/sections'
+import { Section, SectionContent } from '@/components/sections'
 import { ContactsData } from '@/data/Contact.data'
 import { FileUserIcon } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
@@ -10,7 +10,6 @@ const router = useRouter()
 
 <template>
   <Section>
-    <SectionHeader>Связь</SectionHeader>
     <SectionContent variant="inline">
       <ContactsLink
         v-for="contact in ContactsData"
