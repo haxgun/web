@@ -2,7 +2,7 @@
 import { FreelanceData } from '@/data/cv/Freelance.data'
 import { ProjectsData } from '@/data/cv/Projects.data'
 import { openLink } from '@/lib/utils'
-import { ArrowUpRightIcon, DownloadIcon } from 'lucide-vue-next'
+import { ArrowUpRightIcon, Download01Icon } from '@untitledui-icons/vue/line'
 </script>
 
 <template>
@@ -121,27 +121,33 @@ import { ArrowUpRightIcon, DownloadIcon } from 'lucide-vue-next'
       <div class="flex flex-col gap-5 w-lg">
         <div class="flex flex-col gap-10">
           <!-- Contacts -->
-          <ul class="flex flex-col gap-1 w-full">
+          <ul class="flex flex-col gap-2.5 w-full">
             <li class="inline-flex gap-1 items-center">
-              <a class="hover:underline" href="mailto:misha@valory.su" target="_blank">
+              <a class="hover:underline leading-none" href="mailto:misha@valory.su" target="_blank">
                 misha@valory.su
               </a>
               <ArrowUpRightIcon class="size-4" />
             </li>
             <li class="inline-flex gap-1 items-center">
-              <a class="hover:underline" href="https://t.me/haxgun" target="_blank">
+              <a class="hover:underline leading-none" href="https://t.me/haxgun" target="_blank">
                 t.me/haxgun
               </a>
               <ArrowUpRightIcon class="size-4" />
             </li>
             <li class="inline-flex gap-1 items-center">
-              <a class="hover:underline" href="https://github.com/haxgun" target="_blank">
+              <a
+                class="hover:underline leading-none"
+                href="https://github.com/haxgun"
+                target="_blank"
+              >
                 github.com/haxgun
               </a>
               <ArrowUpRightIcon class="size-4" />
             </li>
             <li class="inline-flex gap-1 items-center">
-              <a class="hover:underline" href="https://haxgun.ru" target="_blank">haxgun.ru</a>
+              <a class="hover:underline leading-none" href="https://haxgun.ru" target="_blank"
+                >haxgun.ru</a
+              >
             </li>
             <li>Пермь</li>
           </ul>
@@ -196,7 +202,7 @@ import { ArrowUpRightIcon, DownloadIcon } from 'lucide-vue-next'
           @click="openLink('https://drive.google.com/file/d/1Lkq-FMPODoL7mP0x5DOlYNpKE0Uoct8X')"
           class="text-sm rounded-lg hover:bg-neutral-200/50 hover:text-zinc-700 dark:hover:text-white transition-colors duration-200 capitalize inline-flex gap-2 items-center justify-center py-2 px-3"
         >
-          <DownloadIcon :size="16" />
+          <Download01Icon class="size-4 stroke-2" />
           Скачать PDF
         </button>
       </div>

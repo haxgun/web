@@ -4,8 +4,8 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useMetaExtractor } from '@/composables'
 import { useGlobalMetaCache } from '@/composables/useGlobalMetaCache'
 import { cn, openLink } from '@/lib/utils.ts'
+import { BookClosedIcon } from '@untitledui-icons/vue/line'
 import { ForesightManager } from 'js.foresight'
-import { BookIcon } from 'lucide-vue-next'
 import type { HTMLAttributes } from 'vue'
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 
@@ -210,7 +210,7 @@ onUnmounted(() => {
               v-if="!metaData.ogImage"
               class="h-full w-full rounded-md flex flex-col justify-center items-center"
             >
-              <BookIcon class="size-6 text-[#e5e5e5]" />
+              <BookClosedIcon class="size-6 text-[#e5e5e5]" />
             </div>
             <img
               v-else
