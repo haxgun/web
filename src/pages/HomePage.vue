@@ -2,13 +2,14 @@
 import { Contacts } from '@/components/contacts'
 import { Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
-import { GitHubContributions, LinkPreview } from '@/components/ui'
+import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
 </script>
 
 <template>
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-[calc(100vh-3rem)]">
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
       <div class="flex flex-col gap-3">
+        <Photo src="photo.jpg" />
         <div
           class="inline-flex gap-3 font-medium text-3xl pointer-events-none text-[oklch(94.9%_0_0)]"
         >
