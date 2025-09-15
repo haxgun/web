@@ -17,6 +17,7 @@
     "@jaseeey/vue-umami-plugin": "^1.3.0",
     "@tailwindcss/vite": "^4.1.11",
     "@unhead/vue": "^2.0.12",
+    "@untitledui-icons/vue": "^1.0.3",
     "@vueuse/core": "^13.5.0",
     "@vueuse/motion": "^2.2.6",
     "cheerio": "^1.1.0",
