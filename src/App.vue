@@ -1,7 +1,25 @@
 <script setup lang="ts">
+import { useColorMode } from '@vueuse/core'
+import { onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useFavicon } from './composables'
 
 const route = useRoute()
+
+const colorMode = useColorMode()
+const { updateFavicon } = useFavicon()
+
+watch(
+  () => colorMode.value,
+  () => {
+    updateFavicon()
+  },
+  { immediate: true },
+)
+
+onMounted(() => {
+  updateFavicon()
+})
 </script>
 
 <template>
