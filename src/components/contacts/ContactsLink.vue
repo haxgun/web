@@ -5,7 +5,7 @@ const props = defineProps<IContact>()
 
 <template>
   <a
-    class="text-sm contact-link group hover:bg-[var(--color)]/15 w-fit cursor-pointer font-medium gap-2 py-1 px-2 -ml-2 hover:rounded-sm transition-all inline-flex items-center active:scale-95"
+    class="text-sm contact-link group hover:bg-[var(--color)]/15 w-fit cursor-pointer font-medium gap-1.5 py-1 px-2 -ml-2 hover:rounded-sm transition-all inline-flex items-center active:scale-95"
     :href="props.url"
     :style="{ color: props.color }"
   >
