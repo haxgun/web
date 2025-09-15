@@ -83,7 +83,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col gap-2 rounded-xl bg-white/5 p-3 border border-white/10 text-[oklch(77.3%_0_0)] font-sans text-xs w-fit"
+    class="flex flex-col gap-2 rounded-xl my-2 bg-white/5 p-3 border border-white/10 text-[oklch(77.3%_0_0)] font-sans text-xs w-fit"
   >
     <div class="inline-flex justify-between font-medium items-center text-sm w-full">
       <span class="inline-flex gap-1.5 items-center">
