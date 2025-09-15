@@ -8,30 +8,24 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
 <template>
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-[calc(100vh-3rem)]">
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
-      <div class="flex flex-col gap-6">
+      <div class="flex flex-col gap-3">
         <div
-          class="inline-flex gap-3 font-semibold text-[2.25em] pointer-events-none text-neutral-700 dark:text-white"
+          class="inline-flex gap-3 font-medium text-3xl pointer-events-none text-[oklch(94.9%_0_0)]"
         >
-          Миша Гусев
-          <img src="/favicon.png" alt="Миша Гусев" class="w-12 h-12 mr-2" />
+          Привет, я Миша
         </div>
-        <div class="flex flex-col gap-4">
-          <div class="text-neutral-500 dark:text-neutral-300">
-            Привет! Я
-            <strong class="font-medium text-neutral-700 dark:text-white"
-              >full-stack разработчик</strong
-            >, который создаёт
-            <strong class="font-medium text-neutral-700 dark:text-white">
-              современные инструменты</strong
-            >.
+        <div class="flex flex-col gap-3 text-[oklch(77.3%_0_0)]">
+          <div>
+            И я
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">full-stack разработчик</strong>,
+            который создаёт
+            <strong class="font-medium text-[oklch(94.9%_0_0)]"> современные инструменты</strong>.
           </div>
-          <div class="text-neutral-500 dark:text-neutral-200">
+          <div>
             В основном занимаюсь
-            <strong class="font-medium text-neutral-700 dark:text-white">бекендом</strong>.<br />
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">бекендом</strong>.<br />
             Создаю
-            <strong class="font-medium text-neutral-700 dark:text-white"
-              >микросервисы, API и</strong
-            >
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">микросервисы, API и</strong>
             <LinkPreview
               url="https://core.telegram.org/bots/api"
               class="text-[#24A1DE] hover:bg-[#24A1DE]/15"
@@ -53,9 +47,9 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
               aiogram
             </LinkPreview>
           </div>
-          <div class="text-neutral-500 dark:text-neutral-300">
+          <div>
             Для
-            <strong class="font-medium text-neutral-700 dark:text-white">фронтенда</strong>
+            <strong class="font-medium text-[oklch(94.9% 0 0)]">фронтенда</strong>
             использую
             <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/15">
               Vite </LinkPreview
@@ -88,7 +82,7 @@ import { GitHubContributions, LinkPreview } from '@/components/ui'
               Reka UI
             </LinkPreview>
           </div>
-          <div class="text-neutral-500 dark:text-neutral-300 inline-flex items-center gap-1">
+          <div class="inline-flex items-center gap-1">
             В настоящее время работаю над
             <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/15">
               <Valory :size="19" />

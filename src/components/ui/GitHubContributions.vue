@@ -82,11 +82,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="rounded-lg text-neutral-600 py-3 font-sans text-xs w-fit">
-    <div
-      class="inline-flex justify-between font-medium text-neutral-500 items-center text-sm w-full"
-    >
-      <span class="inline-flex gap-2 items-center">
+  <div class="rounded-lg text-[oklch(77.3%_0_0)] py-3 font-sans text-xs w-fit">
+    <div class="inline-flex justify-between font-medium items-center text-sm w-full">
+      <span class="inline-flex gap-1.5 items-center">
         <GithubIcon :size="16" color="#737373" />
         <span>Активность на GitHub</span>
       </span>
