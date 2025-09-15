@@ -4,6 +4,41 @@ import { Verify } from '@/components/icons'
 import { Valory } from '@/components/icons/logotypes'
 import { Projects } from '@/components/projects'
 import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
+import { useProfileAnimation } from '@/composables/useProfileAnimation'
+import { onMounted, ref } from 'vue'
+
+const photoRef = ref<HTMLElement>()
+const nameRef = ref<HTMLElement>()
+const roleRef = ref<HTMLElement>()
+const contactsRef = ref<HTMLElement>()
+const descriptionRefs = ref<HTMLElement[]>([])
+const githubRef = ref<HTMLElement>()
+const projectsRef = ref<HTMLElement>()
+
+const { animateProfile } = useProfileAnimation()
+
+const setDescriptionRef = (el: HTMLElement | null, index: number) => {
+  if (el) {
+    descriptionRefs.value[index] = el
+  }
+}
+
+onMounted(() => {
+  console.log('Description refs:', descriptionRefs.value)
+
+  const elements = {
+    photo: photoRef.value,
+    name: nameRef.value,
+    role: roleRef.value,
+    contacts: contactsRef.value,
+    descriptions: descriptionRefs.value.filter(Boolean),
+    github: githubRef.value,
+    projects: projectsRef.value,
+  }
+
+  console.log('All elements for animation:', elements)
+  animateProfile(elements)
+})
 </script>
 
 <template>
@@ -11,26 +46,32 @@ import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
       <div class="flex flex-col gap-3">
         <div class="flex gap-4 items-center mb-4">
-          <Photo src="photo.jpg" />
+          <div ref="photoRef">
+            <Photo src="photo.jpg" />
+          </div>
           <div class="flex flex-col gap-1">
             <div
+              ref="nameRef"
               class="inline-flex gap-1.5 items-center font-medium text-xl pointer-events-none text-[oklch(94.9%_0_0)]"
             >
               Миша Гусев
               <Verify class="text-white size-4" />
             </div>
-            <div class="text-[oklch(77.3%_0_0)]">Full-stack разработчик</div>
-            <Contacts />
+            <div ref="roleRef" class="text-[oklch(77.3%_0_0)]">Full-stack разработчик</div>
+            <div ref="contactsRef">
+              <Contacts />
+            </div>
           </div>
         </div>
 
         <div class="flex flex-col gap-3 text-[oklch(77.3%_0_0)]">
-          <div>
+          <div :ref="(el) => setDescriptionRef(el, 0)">
             <strong class="font-medium text-[oklch(94.9%_0_0)]">Разработчик</strong>, который
             создаёт
             <strong class="font-medium text-[oklch(94.9%_0_0)]"> современные инструменты</strong>.
           </div>
-          <div>
+
+          <div :ref="(el) => setDescriptionRef(el, 1)">
             В основном занимаюсь
             <strong class="font-medium text-[oklch(94.9%_0_0)]">бекендом</strong>.<br />
             Создаю
@@ -56,7 +97,8 @@ import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
               aiogram
             </LinkPreview>
           </div>
-          <div>
+
+          <div :ref="(el) => setDescriptionRef(el, 2)">
             Для
             <strong class="font-medium text-[oklch(94.9% 0 0)]">фронтенда</strong>
             использую
@@ -91,7 +133,8 @@ import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
               Reka UI
             </LinkPreview>
           </div>
-          <div class="inline-flex items-center gap-1">
+
+          <div :ref="(el) => setDescriptionRef(el, 3)" class="inline-flex items-center gap-1">
             В настоящее время работаю над
             <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/15">
               <Valory :size="19" />
@@ -99,9 +142,29 @@ import { GitHubContributions, LinkPreview, Photo } from '@/components/ui'
             </LinkPreview>
           </div>
         </div>
-        <GitHubContributions username="haxgun" />
-        <Projects />
+
+        <div ref="githubRef">
+          <GitHubContributions username="haxgun" />
+        </div>
+
+        <div ref="projectsRef">
+          <Projects />
+        </div>
       </div>
     </div>
   </main>
 </template>
+
+<style scoped>
+main {
+  will-change: filter, transform, opacity;
+}
+
+[ref] {
+  will-change: filter, transform, opacity;
+}
+
+:deep(.link-preview) {
+  transition: background-color 0.2s ease;
+}
+</style>
