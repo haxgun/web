@@ -82,17 +82,22 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="rounded-lg text-[oklch(77.3%_0_0)] py-3 font-sans text-xs w-fit">
+  <div
+    class="flex flex-col gap-2 rounded-xl bg-white/5 p-3 border border-white/10 text-[oklch(77.3%_0_0)] font-sans text-xs w-fit"
+  >
     <div class="inline-flex justify-between font-medium items-center text-sm w-full">
       <span class="inline-flex gap-1.5 items-center">
-        <GithubIcon :size="16" color="#737373" />
+        <GithubIcon :size="16" class="text-[oklch(77.3%_0_0)]" />
         <span>Активность на GitHub</span>
       </span>
       <span :class="{ 'text-red-400': error }">{{ displayText }}</span>
     </div>
 
-    <div v-if="contributionsData && !loading" class="relative">
-      <div class="flex gap-0.5 overflow-x-scroll py-3">
+    <div
+      v-if="contributionsData && !loading"
+      class="relative bg-white/5 p-3 border border-white/5 rounded-lg"
+    >
+      <div class="flex gap-0.5 overflow-x-scroll">
         <div
           v-for="(week, weekIndex) in contributionsData.weeks"
           :key="weekIndex"
