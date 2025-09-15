@@ -8,6 +8,7 @@ const props = defineProps<IProject>()
   <a
     class="group contact-url w-fit cursor-pointer gap-2.5 py-px px-2 hover:bg-white/10 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
     :href="props.link"
+    target="_blank"
   >
     <span class="inline-flex items-center gap-2">
       <ProjectStatus v-if="props.stage" :stage="props.stage" />
