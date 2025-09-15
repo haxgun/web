@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Section, SectionContent } from '@/components/sections'
 import { ContactsData } from '@/data/Contact.data'
-import { FileUserIcon } from 'lucide-vue-next'
+import { Certificate01Icon } from '@untitledui-icons/vue/line'
 import { useRouter } from 'vue-router'
 import { ContactsLink } from '.'
 
@@ -23,7 +23,7 @@ const router = useRouter()
       <ContactsLink
         :url="router.resolve({ name: 'cv' }).href"
         name="Резюме"
-        :icon="FileUserIcon"
+        :icon="Certificate01Icon"
         color="white"
       />
     </SectionContent>

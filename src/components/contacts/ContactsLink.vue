@@ -9,7 +9,7 @@ const props = defineProps<IContact>()
     :href="props.url"
     :style="{ color: props.color }"
   >
-    <component v-if="props.icon" :is="props.icon" class="size-4" />
+    <component v-if="props.icon" :is="props.icon" class="size-4 stroke-[2]" />
     <span>{{ props.name }}</span>
   </a>
 </template>

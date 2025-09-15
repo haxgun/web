@@ -6,7 +6,7 @@ const props = defineProps<IProject>()
 
 <template>
   <a
-    class="group contact-url w-fit cursor-pointer gap-3 py-px px-2 hover:bg-white/10 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
+    class="group contact-url w-fit cursor-pointer gap-2.5 py-px px-2 hover:bg-white/10 -ml-2 hover:rounded-sm transition-all inline-flex items-center"
     :href="props.link"
   >
     <span class="inline-flex items-center gap-2">
