@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { GithubIcon } from '@/components/icons/socials'
 import {
-  type ContributionDay,
-  type ContributionWeek,
-  type ContributionsData,
+  type IContributionDay,
+  type IContributionWeek,
+  type IContributionsData,
 } from '@/types/github.type'
 import { computed, onMounted, ref } from 'vue'
 
 const props = defineProps<{ username: string }>()
 
-const contributionsData = ref<ContributionsData | null>(null)
+const contributionsData = ref<IContributionsData | null>(null)
 const loading = ref(false)
 const error = ref<string | null>(null)
-const hoveredDay = ref<ContributionDay | null>(null)
+const hoveredDay = ref<IContributionDay | null>(null)
 
 const totalContributions = computed(() => contributionsData.value?.totalContributions || 0)
 
@@ -34,16 +34,16 @@ function formatDateForDisplay(count: number, date: string): string {
   return `${count} контрибуций ${formatted}`
 }
 
-async function fetchRealContributions(user: string): Promise<ContributionsData> {
+async function fetchRealContributions(user: string): Promise<IContributionsData> {
   const url = `https://github-contributions-api.jogruber.de/v4/${user}?y=last`
   const res = await fetch(url)
   if (!res.ok) throw new Error('GitHub API error')
 
-  type ApiResp = { contributions: ContributionDay[] }
+  type ApiResp = { contributions: IContributionDay[] }
   const json: ApiResp = await res.json()
 
-  const weeks: ContributionWeek[] = []
-  let buf: ContributionDay[] = []
+  const weeks: IContributionWeek[] = []
+  let buf: IContributionDay[] = []
 
   json.contributions.forEach((day) => {
     buf.push(day)
@@ -61,7 +61,7 @@ async function fetchRealContributions(user: string): Promise<ContributionsData> 
   return { weeks, totalContributions: total }
 }
 
-function handleMouseEnter(day: ContributionDay) {
+function handleMouseEnter(day: IContributionDay) {
   hoveredDay.value = day
 }
 function handleMouseLeave() {
