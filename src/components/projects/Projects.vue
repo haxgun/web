@@ -20,7 +20,7 @@ const router = useRouter()
         :year="project.year"
         :link="project.link"
         :title="project.title"
-        :short_description="project.short_description"
+        :description="project.description"
         :stage="project.stage"
       />
     </SectionContent>
