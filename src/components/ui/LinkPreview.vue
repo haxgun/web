@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
   showIcon: true,
 })
 
-const { extractMetaFromUrl, loading, error } = useMetaExtractor()
+const { extractMetaFromUrl, error, loading } = useMetaExtractor()
 const { getCached, setCached, markImagePreloaded } = useGlobalMetaCache()
 const metaData = ref<any>(null)
 const hasLoaded = ref(false)
@@ -198,9 +198,11 @@ onUnmounted(() => {
     <HoverCardContent class="w-80 rounded-lg p-4 border-neutral-800" side="top">
       <Transition name="fade" mode="out-in">
         <div v-if="loading || error" key="skeleton" class="flex flex-col gap-2">
-          <Skeleton class="mb-4 aspect-[120/63] w-full rounded-md border object-cover" />
-          <Skeleton class="line-clamp-1 h-5 w-full rounded-md border" />
-          <Skeleton class="line-clamp-3 h-12 w-full rounded-md border" />
+          <Skeleton
+            class="mb-4 aspect-[120/63] border-neutral-800 w-full rounded-md border object-cover"
+          />
+          <Skeleton class="line-clamp-1 h-5 w-full border-neutral-800 rounded-md border" />
+          <Skeleton class="line-clamp-3 h-12 w-full border-neutral-800 rounded-md border" />
         </div>
         <div v-else-if="metaData" key="content" class="overflow-hidden">
           <div
