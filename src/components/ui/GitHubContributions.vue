@@ -24,6 +24,7 @@ const displayText = computed(() => {
 })
 
 function formatDateForDisplay(count: number, date: string): string {
+  if (!date && count === 0) return 'Нет контрибуций'
   const formatted = new Date(date).toLocaleDateString('ru-RU', {
     day: 'numeric',
     month: 'long',
@@ -83,7 +84,7 @@ onMounted(async () => {
 
 <template>
   <div
-    class="flex flex-col gap-2 rounded-xl my-2 bg-white/5 p-3 border border-white/10 text-[oklch(77.3%_0_0)] font-sans text-xs w-fit"
+    class="flex flex-col gap-2 rounded-xl my-2 bg-white/5 p-3 border border-white/10 text-[oklch(77.3%_0_0)] font-sans text-xs w-full"
   >
     <div class="inline-flex justify-between font-medium items-center text-sm w-full">
       <span class="inline-flex gap-1.5 items-center">
@@ -97,7 +98,7 @@ onMounted(async () => {
       v-if="contributionsData && !loading"
       class="relative bg-white/5 p-3 border border-white/5 rounded-lg"
     >
-      <div class="flex gap-0.5 overflow-x-scroll">
+      <div class="flex gap-0.5 overflow-hidden">
         <div
           v-for="(week, weekIndex) in contributionsData.weeks"
           :key="weekIndex"
@@ -106,14 +107,13 @@ onMounted(async () => {
           <div
             v-for="(day, dayIndex) in week.days"
             :key="dayIndex"
-            class="size-[11.5px] rounded-[3px] cursor-pointer transition-all duration-100"
+            class="size-[10.82px] rounded-[3px] cursor-pointer transition-all duration-100"
             :class="{
-              'bg-neutral-900 hover:bg-neutral-950': day.level === 0,
+              'bg-neutral-900 hover:bg-neutral-950': day.level === 0 || day.date === '',
               'bg-green-900 hover:bg-green-800': day.level === 1,
               'bg-green-700 hover:bg-green-600': day.level === 2,
               'bg-green-500 hover:bg-green-400': day.level === 3,
               'bg-green-400 hover:bg-green-300': day.level === 4,
-              'hidden bg-transparent': day.date === '',
             }"
             @mouseenter="handleMouseEnter(day)"
             @mouseleave="handleMouseLeave"
