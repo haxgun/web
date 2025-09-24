@@ -42,14 +42,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-[calc(100vh-3rem)]">
+  <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-dvh">
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
-      <div class="flex flex-col gap-3">
-        <div class="flex gap-4 items-center mb-4">
+      <div class="h-full flex flex-col gap-3">
+        <div class="flex gap-4 items-center my-4">
           <div ref="photoRef">
             <Photo src="photo.jpg" />
           </div>
-          <div class="flex flex-col gap-1">
+          <div class="flex flex-col gap-1 flex-1">
             <div
               ref="nameRef"
               class="inline-flex gap-1.5 items-center font-medium text-xl pointer-events-none text-[oklch(94.9%_0_0)]"
