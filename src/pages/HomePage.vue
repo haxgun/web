@@ -134,7 +134,7 @@ onMounted(() => {
             </LinkPreview>
           </div>
 
-          <div :ref="(el) => setDescriptionRef(el, 3)" class="inline-flex items-center gap-1">
+          <div :ref="(el) => setDescriptionRef(el, 3)" class="flex flex-wrap items-center gap-1">
             В настоящее время работаю над
             <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/15">
               <Valory :size="19" />
@@ -142,7 +142,7 @@ onMounted(() => {
             </LinkPreview>
           </div>
 
-          <div :ref="(el) => setDescriptionRef(el, 4)" class="inline-flex items-center gap-1">
+          <div :ref="(el) => setDescriptionRef(el, 4)" class="flex flex-wrap items-center gap-1">
             Также занимаюсь контребьюцией в
             <LinkPreview url="https://twir.app/" class="text-[#4F69FD] hover:bg-[#4F69FD]/15">
               <Twir :size="19" />
