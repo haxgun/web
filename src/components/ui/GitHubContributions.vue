@@ -87,11 +87,11 @@ onMounted(async () => {
     class="flex flex-col gap-2 rounded-xl my-2 bg-white/5 p-3 text-[oklch(77.3%_0_0)] font-sans text-xs w-full"
   >
     <div class="inline-flex justify-between font-medium items-center text-sm w-full">
-      <span class="inline-flex gap-1.5 items-center">
-        <GithubIcon :size="16" class="text-[oklch(77.3%_0_0)]" />
-        <span>Активность на GitHub</span>
+      <span class="inline-flex h-fit gap-1.5 md:items-center">
+        <GithubIcon :size="16" class="text-[oklch(77.3%_0_0)] mt-1 md:mt-0" />
+        <span class="flex-1">Активность на GitHub</span>
       </span>
-      <span :class="{ 'text-red-400': error }">{{ displayText }}</span>
+      <span :class="{ 'text-red-400': error }" class="text-right">{{ displayText }}</span>
     </div>
 
     <div v-if="contributionsData && !loading" class="relative bg-white/5 p-3 rounded-lg">
