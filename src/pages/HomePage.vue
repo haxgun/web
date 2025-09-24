@@ -45,7 +45,7 @@ onMounted(() => {
   <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-dvh">
     <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
       <div class="h-full flex flex-col gap-3">
-        <div class="flex gap-4 items-center my-4">
+        <div class="flex gap-4 md:items-center mb-4 mt-8 md:mt-4">
           <div ref="photoRef">
             <Photo src="photo.jpg" />
           </div>
