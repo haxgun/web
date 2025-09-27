@@ -14,7 +14,7 @@ import { ArrowUpRightIcon, Download01Icon } from '@untitledui-icons/vue/line'
         <div class="flex flex-col gap-5">
           <div class="flex flex-col gap-2">
             <span class="text-3xl font-bold">Миша Гусев</span>
-            <span class="text-xl">Младший Full-Stack Разработчик</span>
+            <span class="text-xl">Full-Stack Разработчик</span>
             <span class="text-sm">Мужчина, 23 года, 31 декабря 2001 г.</span>
           </div>
           <ul class="flex flex-col gap-2 font-medium">
@@ -156,7 +156,7 @@ import { ArrowUpRightIcon, Download01Icon } from '@untitledui-icons/vue/line'
           <div class="flex flex-col gap-3">
             <div class="font-bold text-xl">Навыки</div>
             <ul class="flex flex-col list-disc ml-3 gap-2">
-              <li>HTML5, CSS, SCSS, SASS, TailwindCSS</li>
+              <li>HTML5, CSS, SCSS, TailwindCSS</li>
               <li>JavaScript, TypeScript</li>
               <li>Python, Async/Await</li>
               <li>Windows, macOS, Linux</li>
@@ -176,11 +176,11 @@ import { ArrowUpRightIcon, Download01Icon } from '@untitledui-icons/vue/line'
             <ul class="flex flex-col list-disc ml-3 gap-2">
               <li>Git, GitHub</li>
               <li>Figma, Photoshop</li>
-              <li>PyCharm, VSCode, Zed code</li>
-              <li>Django, DRF, FastAPI, Flask</li>
+              <li>PyCharm, Zed code</li>
+              <li>Django, FastAPI, Flask</li>
               <li>Vue 3, Nuxt 3 и 4</li>
-              <li>Redis, PostgreSQL, SQLite, SQLModel, SQLAlchemy ORM</li>
-              <li>aiogram, pyrogram, aiohttp, pycord</li>
+              <li>Redis, PostgreSQL, SQLAlchemy ORM</li>
+              <li>aiogram, aiohttp</li>
               <li>Docker, Docker Compose, Nginx</li>
               <li>Bash, Zsh</li>
             </ul>
@@ -189,10 +189,10 @@ import { ArrowUpRightIcon, Download01Icon } from '@untitledui-icons/vue/line'
           <div class="flex flex-col gap-3">
             <div class="font-bold text-xl">Хобби</div>
             <ul class="flex flex-col list-disc ml-3 gap-2">
-              <li>Баскетбол (активное участие в местных турнирах)</li>
-              <li>Чтение технической литературы и художественных произведений</li>
-              <li>Прослушивание музыки различных жанров</li>
-              <li>Изучение новых технологий и фреймворков</li>
+              <li>Баскетбол</li>
+              <li>Чтение литературы</li>
+              <li>Прослушивание музыки</li>
+              <li>Изучение новых технологий</li>
             </ul>
           </div>
         </div>
