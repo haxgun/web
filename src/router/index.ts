@@ -15,6 +15,11 @@ const router = createRouter({
 			component: () => import("@/pages/CvPage.vue"),
 		},
 		{
+			path: "/minecraft",
+			name: "Minecraft",
+			component: () => import("@/pages/MinecraftPage.vue"),
+		},
+		{
 			path: "/:pathMatch(.*)*",
 			name: "NotFound",
 			redirect: { name: "home" },
