@@ -2,14 +2,15 @@
 import { onMounted, type Ref, ref } from 'vue'
 import { useTitle, useFavicon } from '@vueuse/core'
 import { Dialog, VideoBackground, Button } from '@/components/minecraft'
+import type { IMinecraftLink } from '@/types/links.type'
 
+const serverModal: Ref<boolean> = ref(false)
+const minePiModal: Ref<boolean> = ref(false)
 
-interface Link {
-  name: string
-  url: string
-}
+const title = useTitle()
+title.value = 'Курс "Программирование в Minecraft"'
 
-const links: Array<Link> = [
+const links: Array<IMinecraftLink> = [
   {
     name: 'Python',
     url: 'https://www.python.org/'
@@ -19,12 +20,6 @@ const links: Array<Link> = [
     url: 'https://nightly.link/UltimMC/Launcher/workflows/main/develop/mmc-cracked-win32.zip'
   },
 ]
-
-const serverModal: Ref<boolean> = ref(false)
-const minePiModal: Ref<boolean> = ref(false)
-
-const title = useTitle()
-title.value = 'Курс "Программирование в Minecraft"'
 
 onMounted(() => {
   useFavicon('/minecraft/favicon.webp')
