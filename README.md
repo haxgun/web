@@ -1,39 +1,20 @@
-# haxgun-landing
+**[haxgun.ru](https://haxgun.ru)**
 
-This template should help get you started developing with Vue 3 in Vite.
+Hey, I'm Misha Gusev! This is source of my personal [webpage](https://haxgun.ru).
 
-## Recommended IDE Setup
+## Technologies Used
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Core
+  - [Vue 3](https://vuejs.org/)
+    - [Vue Router](https://router.vuejs.org/)
+    - [Pinia](https://pinia.vuejs.org/)
+    - [VueUse](https://vueuse.org/)
+  - [Vite](https://vitejs.dev/)
+  - [TypeScript](https://www.typescriptlang.org/)
+  - [Foresight](https://foresightjs.org/)
+- Styles
+  - [Reka UI](https://reka-ui.com/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+  - [gsap](https://greensock.com/gsap/)
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+<samp>code is licensed under <a href='./LICENSE'>MIT</a>,<br> words and images are licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>.
