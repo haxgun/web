@@ -27,15 +27,15 @@ const title = useTitle()
 title.value = 'Курс "Программирование в Minecraft"'
 
 onMounted(() => {
-  useFavicon('/minecraft/favicon.png')
+  useFavicon('/minecraft/favicon.webp')
 }
 )
 </script>
 
 <template>
-  <VideoBackground video-src="/minecraft/video.mp4" image="/minecraft/background.png">
+  <VideoBackground video-src="/minecraft/video.mp4" image="/minecraft/background.webp">
     <div class="z-10 flex flex-col gap-12 items-center justify-center max-w-2/3">
-      <img defer src="/minecraft/course_logo.png" alt="course_logo"
+      <img defer src="/minecraft/course_logo.webp" alt="course_logo"
         class="mt-[8%] select-none pointer-events-none size-[70%]">
       <div
         class="flex items-center justify-center flex-wrap gap-5 w-fit bg-[#171615] border-0 border-t-5 border-[#3D3938] p-5">

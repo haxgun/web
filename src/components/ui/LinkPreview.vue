@@ -97,7 +97,7 @@ const prefetchContent = async () => {
       try {
         await preloadImage(meta.ogImage)
         markImagePreloaded(cacheKey)
-      } catch (err) {}
+      } catch (err) { }
     }
   } catch (err) {
     hasLoaded.value = false
@@ -180,17 +180,11 @@ onUnmounted(() => {
 <template>
   <HoverCard>
     <HoverCardTrigger as-child>
-      <a
-        ref="linkRef"
-        :href="props.url"
-        :class="
-          cn(
-            'cursor-pointer font-medium gap-1 py-px px-1 hover:bg-neutral-100/60 hover:rounded-sm transition-all inline-flex items-center active:scale-95',
-            props.class,
-          )
-        "
-        @mouseenter="handleMouseEnter"
-      >
+      <a ref="linkRef" :href="props.url" :class="cn(
+        'cursor-pointer font-medium gap-1 py-px px-1 hover:bg-neutral-100/60 hover:rounded-sm transition-all inline-flex items-center active:scale-95',
+        props.class,
+      )
+        " @mouseenter="handleMouseEnter">
         <slot />
       </a>
     </HoverCardTrigger>
@@ -198,36 +192,21 @@ onUnmounted(() => {
     <HoverCardContent class="w-80 rounded-lg p-4 border-neutral-800" side="top">
       <Transition name="fade" mode="out-in">
         <div v-if="loading || error" key="skeleton" class="flex flex-col gap-2">
-          <Skeleton
-            class="mb-4 aspect-[120/63] border-neutral-800 w-full rounded-md border object-cover"
-          />
+          <Skeleton class="mb-4 aspect-[120/63] border-neutral-800 w-full rounded-md border object-cover" />
           <Skeleton class="line-clamp-1 h-5 w-full border-neutral-800 rounded-md border" />
           <Skeleton class="line-clamp-3 h-12 w-full border-neutral-800 rounded-md border" />
         </div>
         <div v-else-if="metaData" key="content" class="overflow-hidden">
-          <div
-            class="mb-4 aspect-[120/63] w-full rounded-md border border-neutral-800 object-cover"
-          >
-            <div
-              v-if="!metaData.ogImage"
-              class="h-full w-full rounded-md flex flex-col justify-center items-center"
-            >
+          <div class="mb-4 aspect-[120/63] w-full rounded-md border border-neutral-800 object-cover">
+            <div v-if="!metaData.ogImage" class="h-full w-full rounded-md flex flex-col justify-center items-center">
               <BookClosedIcon class="size-6 text-[#e5e5e5]" />
             </div>
-            <img
-              v-else
-              :src="metaData.ogImage"
-              :alt="metaData.title"
-              class="h-full w-full rounded-md object-cover"
-              fetchpriority="high"
-              loading="eager"
-            />
+            <img v-else :src="metaData.ogImage" :alt="metaData.title" class="h-full w-full rounded-md object-cover"
+              fetchpriority="high" loading="eager" />
           </div>
           <div class="flex flex-col gap-2">
-            <h3
-              @click="openLink(props.url)"
-              class="cursor-pointer line-clamp-1 text-sm font-semibold text-white border-b border-dashed w-fit"
-            >
+            <h3 @click="openLink(props.url)"
+              class="cursor-pointer line-clamp-1 text-sm font-semibold text-white border-b border-dashed w-fit">
               {{ metaData.title || repoName }}
             </h3>
             <p v-if="metaData.description" class="line-clamp-3 text-xs text-[#CECECE]">
@@ -244,16 +223,19 @@ onUnmounted(() => {
 .fade-enter-active {
   transition: opacity 0.3s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
+
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;

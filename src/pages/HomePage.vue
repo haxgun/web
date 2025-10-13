@@ -47,13 +47,11 @@ onMounted(() => {
       <div class="h-full flex flex-col gap-3">
         <div class="flex gap-4 md:items-center mb-4 mt-8 md:mt-4">
           <div ref="photoRef">
-            <Photo src="photo.jpg" />
+            <Photo src="photo.webp" />
           </div>
           <div class="flex flex-col gap-1 flex-1">
-            <div
-              ref="nameRef"
-              class="inline-flex gap-1.5 items-center font-medium text-xl pointer-events-none text-[oklch(94.9%_0_0)]"
-            >
+            <div ref="nameRef"
+              class="inline-flex gap-1.5 items-center font-medium text-xl pointer-events-none text-[oklch(94.9%_0_0)]">
               Миша Гусев
               <Verify class="text-white size-4" />
             </div>
@@ -76,24 +74,15 @@ onMounted(() => {
             <strong class="font-medium text-[oklch(94.9%_0_0)]">бекендом</strong>.<br />
             Создаю
             <strong class="font-medium text-[oklch(94.9%_0_0)]">микросервисы и</strong>
-            <LinkPreview
-              url="https://core.telegram.org/bots/api"
-              class="text-[#24A1DE] hover:bg-[#24A1DE]/15"
-            >
+            <LinkPreview url="https://core.telegram.org/bots/api" class="text-[#24A1DE] hover:bg-[#24A1DE]/15">
               Telegram ботов
             </LinkPreview>
             с использованием
-            <LinkPreview
-              url="https://fastapi.tiangolo.com/"
-              class="text-[#009485] hover:bg-[#009485]/15"
-            >
+            <LinkPreview url="https://fastapi.tiangolo.com/" class="text-[#009485] hover:bg-[#009485]/15">
               FastAPI
             </LinkPreview>
             и
-            <LinkPreview
-              url="https://github.com/aiogram/aiogram"
-              class="text-[#24A1DE] hover:bg-[#24A1DE]/15"
-            >
+            <LinkPreview url="https://github.com/aiogram/aiogram" class="text-[#24A1DE] hover:bg-[#24A1DE]/15">
               aiogram
             </LinkPreview>
           </div>
@@ -103,32 +92,15 @@ onMounted(() => {
             <strong class="font-medium text-[oklch(94.9% 0 0)]">фронтенда</strong>
             использую
             <LinkPreview url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/15">
-              Vite </LinkPreview
-            >,
-            <LinkPreview
-              url="https://github.com/vuejs/core"
-              class="text-[#41B883] hover:bg-[#41B883]/15"
-            >
-              Vue 3 </LinkPreview
-            >,
-            <LinkPreview
-              url="https://github.com/vuejs/pinia"
-              class="text-[#ECB732] hover:bg-[#ECB732]/15"
-            >
-              Pinia </LinkPreview
-            >,
-            <LinkPreview
-              url="https://github.com/vuejs/router"
-              class="text-[#34495E] hover:bg-[#34495E]/15"
-            >
-              Vue Router </LinkPreview
-            >,
-            <LinkPreview
-              url="https://tailwindcss.com/"
-              class="text-[#38BDF8] hover:bg-[#38BDF8]/15"
-            >
-              TailwindCSS </LinkPreview
-            >и
+              Vite </LinkPreview>,
+            <LinkPreview url="https://github.com/vuejs/core" class="text-[#41B883] hover:bg-[#41B883]/15">
+              Vue 3 </LinkPreview>,
+            <LinkPreview url="https://github.com/vuejs/pinia" class="text-[#ECB732] hover:bg-[#ECB732]/15">
+              Pinia </LinkPreview>,
+            <LinkPreview url="https://github.com/vuejs/router" class="text-[#34495E] hover:bg-[#34495E]/15">
+              Vue Router </LinkPreview>,
+            <LinkPreview url="https://tailwindcss.com/" class="text-[#38BDF8] hover:bg-[#38BDF8]/15">
+              TailwindCSS </LinkPreview>и
             <LinkPreview url="https://reka-ui.com/" class="text-[#30C196] hover:bg-[#30C196]/15">
               Reka UI
             </LinkPreview>
