@@ -2,7 +2,6 @@
 import { onMounted, type Ref, ref } from 'vue'
 import { useTitle, useFavicon } from '@vueuse/core'
 import { Dialog, VideoBackground, Button } from '@/components/minecraft'
-import { useSeoMeta } from '@vueuse/head'
 import type { IMinecraftLink } from '@/types/links.type'
 
 const serverModal: Ref<boolean> = ref(false)
@@ -21,16 +20,6 @@ const links: Array<IMinecraftLink> = [
     url: 'https://nightly.link/UltimMC/Launcher/workflows/main/develop/mmc-cracked-win32.zip'
   },
 ]
-
-useSeoMeta({
-  title: 'Курс "Программирование в Minecraft"',
-  description: 'Курс "Программирование в Minecraft на Python" — увлекательный способ освоить один из самых популярных языков программирования через любимую игру. Дети научатся писать код на Python, создавать автоматические постройки, разрабатывать мини-игры и управлять игровым миром Minecraft программно. Развитие логического и алгоритмического мышления, креативности и навыков решения задач',
-  ogImage: '/minecraft/meta.webp',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Курс "Программирование в Minecraft"',
-  twitterDescription: 'Курс "Программирование в Minecraft на Python" — увлекательный способ освоить один из самых популярных языков программирования через любимую игру.',
-  twitterImage: '/minecraft/meta.webp'
-})
 
 onMounted(() => {
   useFavicon('/minecraft/favicon.webp')

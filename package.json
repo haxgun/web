@@ -19,7 +19,6 @@
     "@unhead/vue": "^2.0.12",
     "@untitledui-icons/vue": "^1.0.3",
     "@vueuse/core": "^13.9.0",
-    "@vueuse/head": "^2.0.0",
     "@vueuse/motion": "^2.2.6",
     "cheerio": "^1.1.0",
     "class-variance-authority": "^0.7.1",
