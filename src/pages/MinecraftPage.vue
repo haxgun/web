@@ -41,12 +41,11 @@ onMounted(() => {
         class="flex items-center justify-center flex-wrap gap-5 w-fit bg-[#171615] border-0 border-t-5 border-[#3D3938] p-5">
         <Dialog v-model="serverModal" title="Сервера"
           description="Выберите версию сервера, на котором хотите практиковаться">
-          <a class="MCButton"
-            href="https://drive.google.com/file/d/14VCg-mga7ES8eZagA1bcAUZORpHvh80A/view?usp=drive_link" target="_blank"
-            rel="noopener">
+          <a class="MCButton" href="https://drive.google.com/file/d/1X0JG-sNaL-3P9TwY63I9EBaHMJB1MJFM/view?usp=sharing"
+            target="_blank" rel="noopener">
             <span>Версия 1.11.2</span>
           </a>
-          <a class="MCButton" href="https://drive.google.com/file/d/1E2VP5kZkfxYp4Fu3GtNYYjTD-SbE69i3/view?usp=sharing"
+          <a class="MCButton" href="https://drive.google.com/file/d/1yeGIIKUzATAwhrR1TGHuvsQSSd8tEoO-/view?usp=sharing"
             target="_blank" rel="noopener">
             <span>Версия 1.16.5</span>
           </a>
