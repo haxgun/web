@@ -52,7 +52,7 @@ onMounted(() => {
             <span
               class="text-lg text-[#a0a0a0] text-center text-pretty whitespace-pre-line leading-relaxed mb-2"
             >
-              Выберите версию сервера, на котором хотите практиковаться
+              Выберите версию Minecraft сервера, на котором хотите практиковаться
             </span>
           </template>
 
@@ -65,6 +65,11 @@ onMounted(() => {
             href="https://drive.google.com/file/d/1yeGIIKUzATAwhrR1TGHuvsQSSd8tEoO-/view?usp=sharing"
           >
             <span>1.16.5</span>
+          </Button>
+          <Button
+            href="https://drive.google.com/file/d/1_Mhl8tci66DOS745U4184uaHkmWIK2CB/view?usp=sharing"
+          >
+            <span>1.21.10</span>
           </Button>
         </Dialog>
         <Button
