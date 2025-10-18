@@ -14,7 +14,7 @@ title.value = 'Курс "Программирование в Minecraft"'
 const links: Array<IMinecraftLink> = [
   {
     name: 'Java',
-    url: 'https://adoptium.net/download?link=https%3A%2F%2Fgithub.com%2Fadoptium%2Ftemurin25-binaries%2Freleases%2Fdownload%2Fjdk-25%252B36%2FOpenJDK25U-jdk_x64_windows_hotspot_25_36.msi&vendor=Adoptium',
+    url: 'https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25%2B36/OpenJDK25U-jre_x64_windows_hotspot_25_36.msi',
   },
   {
     name: 'Python',
