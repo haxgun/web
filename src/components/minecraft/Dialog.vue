@@ -12,7 +12,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: 'Нажмите на кнопку ниже',
   closeOnOverlay: true,
-  showCloseButton: true
+  showCloseButton: true,
 })
 
 const emit = defineEmits<{
@@ -51,21 +51,26 @@ const toggleBodyScroll = (isOpen: boolean) => {
   document.body.style.overflow = isOpen ? 'hidden' : ''
 }
 
-
-watch(() => props.modelValue, (newValue) => {
-  toggleBodyScroll(newValue)
-})
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    toggleBodyScroll(newValue)
+  },
+)
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="modelValue"
+      <div
+        v-if="modelValue"
         class="fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-100 p-5"
-        @click="handleOverlayClick">
+        @click="handleOverlayClick"
+      >
         <div
-          class="flex flex-col items-center justify-center gap-4 bg-[#171615]  text-white shadow-[inset_0_-4px_0_0_#000,inset_-4px_0_0_0_#3d3938,inset_4px_0_0_0_#000,inset_0_4px_0_0_#3d3938] w-fit max-h-[90dvh] overflow-y-auto max-w-2xl p-12"
-          @click.stop>
+          class="flex flex-col items-center justify-center gap-4 bg-[#171615] text-white shadow-[inset_0_-4px_0_0_#000,inset_-4px_0_0_0_#3d3938,inset_4px_0_0_0_#000,inset_0_4px_0_0_#3d3938] w-fit max-h-[90dvh] overflow-y-auto max-w-2xl p-12"
+          @click.stop
+        >
           <!-- Заголовок -->
           <div v-if="showCloseButton" class="flex justify-center items-center">
             <h3 class="m-0 text-3xl minecraft-ten">{{ props.title }}</h3>
@@ -73,10 +78,7 @@ watch(() => props.modelValue, (newValue) => {
 
           <!-- Контент -->
           <div class="flex flex-col gap-4 w-fit items-center justify-center">
-            <span v-if="props.description"
-              class="text-lg text-[#a0a0a0] text-center text-pretty whitespace-pre-line leading-relaxed mb-2">
-              {{ props.description }}
-            </span>
+            <slot name="description" />
 
             <div class="flex gap-4 items-center justify-center">
               <slot />

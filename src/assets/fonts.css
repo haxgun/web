@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Open Runde'),
+    url('https://fonts.cdnfonts.com/s/103141/OpenRunde-Regular-BF64ee9c627e5b6.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('Open Runde'),
+    url('https://fonts.cdnfonts.com/s/103141/OpenRunde-Medium-BF64ee9c62ad3ad.woff') format('woff');
+}
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local('Open Runde'),
+    url('https://fonts.cdnfonts.com/s/103141/OpenRunde-Semibold-BF64ee9c629e0a5.woff')
+      format('woff');
+}
+@font-face {
+  font-family: 'Open Runde';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Open Runde'),
+    url('https://fonts.cdnfonts.com/s/103141/OpenRunde-Bold-BF64ee9c62a2035.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Minecraft';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Minecraft'),
+    url('https://fonts.cdnfonts.com/s/109588/289-font.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Minecraft-text';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Minecraft'),
+    url('https://fonts.cdnfonts.com/s/25041/1_MinecraftRegular1.woff') format('woff');
+}
+@font-face {
+  font-family: 'Minecraft-text';
+  font-style: italic;
+  font-weight: 400;
+  src:
+    local('Minecraft'),
+    url('https://fonts.cdnfonts.com/s/25041/2_MinecraftItalic1.woff') format('woff');
+}
+@font-face {
+  font-family: 'Minecraft-text';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Minecraft'),
+    url('https://fonts.cdnfonts.com/s/25041/3_MinecraftBold1.woff') format('woff');
+}
+@font-face {
+  font-family: 'Minecraft-text';
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local('Minecraft'),
+    url('https://fonts.cdnfonts.com/s/25041/4_MinecraftBoldItalic1.woff') format('woff');
+}
