@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+)
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date)
+---
+
+<BaseLayout
+  title="Блог — Миша Гусев"
+  description="Заметки о разработке, продуктах и процессах."
+>
+  <main class="max-w-3xl px-5 py-16 mx-auto antialiased">
+    <header class="flex flex-col gap-4 mb-10">
+      <p class="text-sm uppercase tracking-[0.2em] text-[oklch(77.3%_0_0)]">Блог</p>
+      <h1 class="text-3xl font-semibold text-[oklch(94.9%_0_0)]">Заметки и мысли о разработке</h1>
+      <p class="text-[oklch(77.3%_0_0)] max-w-2xl">
+        Здесь делюсь опытом построения продуктов, рассказываю о технических находках и сохраняю
+        важные идеи, чтобы к ним возвращаться.
+      </p>
+    </header>
+
+    <section class="flex flex-col divide-y divide-white/10 border border-white/10 rounded-lg">
+      {posts.map((post) => (
+        <article class="p-6 flex flex-col gap-3" data-slug={post.slug}>
+          <time class="text-xs uppercase tracking-[0.2em] text-[oklch(77.3%_0_0)/80]">
+            {formatDate(post.data.publishDate)}
+          </time>
+          <a
+            class="group"
+            href={`/blog/${post.slug}/`}
+            aria-label={`Читать: ${post.data.title}`}
+          >
+            <h2 class="text-2xl font-medium transition-colors group-hover:text-[oklch(94.9%_0_0)]">
+              {post.data.title}
+            </h2>
+          </a>
+          <p class="text-sm text-[oklch(77.3%_0_0)]">
+            {post.data.description}
+          </p>
+          <div class="flex flex-wrap items-center gap-2 text-xs text-[oklch(77.3%_0_0)/80]">
+            {post.data.readingTime && (
+              <span class="px-2 py-1 rounded-full border border-white/10">
+                {post.data.readingTime}
+              </span>
+            )}
+            {post.data.tags.map((tag) => (
+              <span class="px-2 py-1 rounded-full border border-white/10" data-tag={tag}>
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>
