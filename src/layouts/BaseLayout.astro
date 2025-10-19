@@ -1,0 +1,60 @@
+---
+import '../assets/main.css'
+import '../assets/fonts.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = 'Миша Гусев — Full-stack разработчик',
+  description = 'Full-stack разработчик, создающий современные инструменты и продукты.',
+} = Astro.props as Props
+---
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/logo_dark.svg" />
+    <slot name="head" />
+    <script
+      async
+      defer
+      data-website-id="21f0ed0d-cbd8-4941-b353-3979c3cd53ed"
+      src="https://umami.valory.su/script.js"
+    ></script>
+    <script type="module" is:inline>
+      const darkIcon = '/logo.svg'
+      const lightIcon = '/logo_dark.svg'
+      const media = window.matchMedia('(prefers-color-scheme: dark)')
+      const link = document.querySelector("link[rel~='icon']")
+
+      const updateFavicon = () => {
+        if (!link || link.dataset.locked === 'true') return
+        link.setAttribute('href', media.matches ? darkIcon : lightIcon)
+      }
+
+      updateFavicon()
+      media.addEventListener('change', updateFavicon)
+    </script>
+    <script type="module" is:inline>
+      import { ForesightManager } from 'js.foresight'
+
+      ForesightManager.initialize({
+        enableMousePrediction: true,
+        trajectoryPredictionTime: 120,
+        positionHistorySize: 8,
+        defaultHitSlop: { top: 30, left: 30, bottom: 30, right: 30 },
+        touchDeviceStrategy: 'viewport',
+        enableScrollPrediction: true,
+      })
+    </script>
+  </head>
+  <body class="min-h-dvh bg-black text-white">
+    <slot />
+  </body>
+</html>

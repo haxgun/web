@@ -2,17 +2,16 @@
 import { Section, SectionContent } from '@/components/sections'
 import { ContactsData } from '@/data/Contact.data'
 import { Certificate01Icon } from '@untitledui-icons/vue/line'
-import { useRouter } from 'vue-router'
 import { ContactsLink } from '.'
 
-const router = useRouter()
+const resumeLink = '/cv/'
 </script>
 
 <template>
   <Section>
     <SectionContent variant="inline">
       <ContactsLink
-        :url="router.resolve({ name: 'cv' }).href"
+        :url="resumeLink"
         name="Резюме"
         :icon="Certificate01Icon"
         color="#F6C322"

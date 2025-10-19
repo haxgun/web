@@ -1,10 +1,4 @@
 <script setup lang="ts">
-import hljsVuePlugin from '@highlightjs/vue-plugin'
-import 'highlight.js/lib/common'
-import 'highlight.js/styles/base16/classic-dark.css'
-
-const highlightjs = hljsVuePlugin.component
-
 const props = withDefaults(
   defineProps<{
     language?: string
@@ -18,7 +12,7 @@ const props = withDefaults(
 
 <template>
   <div class="code-highlight overflow-hidden border border-2">
-    <highlightjs :language="props.language" :code="props.code" />
+    <code :language="props.language" :code="props.code" />
   </div>
 </template>
 

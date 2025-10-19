@@ -2,14 +2,11 @@
 import { Button, Dialog, VideoBackground } from '@/components/minecraft'
 import { Code } from '@/components/ui'
 import type { IMinecraftLink } from '@/types/links.type'
-import { useFavicon, useTitle } from '@vueuse/core'
-import { onMounted, type Ref, ref } from 'vue'
+import { useFavicon } from '@vueuse/core'
+import { onMounted, onUnmounted, type Ref, ref } from 'vue'
 
 const serverModal: Ref<boolean> = ref(false)
 const minePiModal: Ref<boolean> = ref(false)
-
-const title = useTitle()
-title.value = 'Курс "Программирование в Minecraft"'
 
 const links: Array<IMinecraftLink> = [
   {
@@ -28,6 +25,13 @@ const links: Array<IMinecraftLink> = [
 
 onMounted(() => {
   useFavicon('/minecraft/favicon.webp')
+  const link = document.querySelector("link[rel~='icon']")
+  link?.setAttribute('data-locked', 'true')
+})
+
+onUnmounted(() => {
+  const link = document.querySelector("link[rel~='icon']")
+  link?.removeAttribute('data-locked')
 })
 </script>
 
