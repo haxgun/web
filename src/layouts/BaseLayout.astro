@@ -1,15 +1,18 @@
 ---
 import '../assets/main.css'
 import '../assets/fonts.css'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../const';
 
 interface Props {
   title?: string
   description?: string
 }
 
+
+
 const {
-  title = 'Миша Гусев — Full-stack разработчик',
-  description = 'Full-stack разработчик, создающий современные инструменты и продукты.',
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
 } = Astro.props as Props
 ---
 <!DOCTYPE html>
