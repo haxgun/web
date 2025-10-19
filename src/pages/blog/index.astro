@@ -31,9 +31,7 @@ const formatDate = (date: Date) =>
     <section class="flex flex-col divide-y divide-white/10 border border-white/10 rounded-lg">
       {posts.map((post) => (
         <article class="p-6 flex flex-col gap-3" data-slug={post.slug}>
-          <time class="text-xs uppercase tracking-[0.2em] text-[oklch(77.3%_0_0)/80]">
-            {formatDate(post.data.publishDate)}
-          </time>
+
           <a
             class="group"
             href={`/blog/${post.slug}/`}
@@ -46,17 +44,22 @@ const formatDate = (date: Date) =>
           <p class="text-sm text-[oklch(77.3%_0_0)]">
             {post.data.description}
           </p>
-          <div class="flex flex-wrap items-center gap-2 text-xs text-[oklch(77.3%_0_0)/80]">
-            {post.data.readingTime && (
-              <span class="px-2 py-1 rounded-full border border-white/10">
-                {post.data.readingTime}
-              </span>
-            )}
-            {post.data.tags.map((tag) => (
-              <span class="px-2 py-1 rounded-full border border-white/10" data-tag={tag}>
-                #{tag}
-              </span>
-            ))}
+          <div class="flex flex-wrap items-center justify-between text-xs text-[oklch(77.3%_0_0)/80]">
+            <div class="flex flex-wrap items-center gap-2">
+                {post.data.readingTime && (
+                <span class="px-2 py-1 rounded-full border border-white/10">
+                    {post.data.readingTime}
+                </span>
+                )}
+                {post.data.tags.map((tag) => (
+                <span class="px-2 py-1 rounded-full border border-white/10" data-tag={tag}>
+                    #{tag}
+                </span>
+                ))}
+            </div>
+            <time class="px-2 py-1 rounded-full border border-white/10">
+              {formatDate(post.data.publishDate)}
+            </time>
           </div>
         </article>
       ))}
