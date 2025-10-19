@@ -4,6 +4,7 @@ import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import path from 'node:path'
+import oscuraDusk from './src/themes/oscura-dusk.json'
 
 export default defineConfig({
   site: 'https://haxgun.ru',
@@ -14,6 +15,11 @@ export default defineConfig({
       alias: {
         '@': path.resolve('./src'),
       },
+    },
+  },
+  markdown: {
+    shikiConfig: {
+      theme: oscuraDusk,
     },
   },
   output: 'static',
