@@ -1,7 +1,220 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import HomePage from '../components/pages/HomePage.vue'
+import Footer from '../components/Footer.vue'
+import Contacts from '../components/contacts/Contacts.vue'
+import Verify from '../components/icons/Verify.vue'
+import Twir from '../components/icons/logotypes/Twir.vue'
+import Valory from '../components/icons/logotypes/Valory.vue'
+import Projects from '../components/projects/Projects.vue'
+import GitHubContributions from '../components/ui/GitHubContributions.vue'
+import LinkPreview from '../components/ui/LinkPreview.vue'
+import Photo from '../components/ui/Photo.vue'
+
+import { getCollection } from 'astro:content'
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+)
+
+const formatDate = (date: Date) => {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}.${month}.${day}`
+}
 ---
+
 <BaseLayout>
-  <HomePage client:load />
+  <main class="max-w-screen-md z-10 antialiased w-full mx-auto h-dvh">
+    <div class="h-full grow px-5 md:pt-16 flex flex-col justify-center">
+      <div class="h-full flex flex-col gap-3">
+        <div class="flex gap-4 md:items-center mb-4 mt-8 md:mt-4">
+          <div data-animate="photo">
+            <Photo src="photo.webp" />
+          </div>
+          <div class="flex flex-col gap-1 flex-1">
+            <div data-animate="name"
+              class="inline-flex gap-1.5 items-center font-medium text-xl pointer-events-none text-[oklch(94.9%_0_0)]">
+              Миша Гусев
+              <Verify class="text-white size-4" />
+            </div>
+            <div data-animate="role" class="text-[oklch(77.3%_0_0)]">Full-stack разработчик</div>
+            <div data-animate="contacts">
+              <Contacts />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 text-[oklch(77.3%_0_0)]">
+          <div data-animate="description">
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">Разработчик</strong>, который
+            создаёт
+            <strong class="font-medium text-[oklch(94.9%_0_0)]"> современные инструменты</strong>.
+          </div>
+
+          <div data-animate="description">
+            В основном занимаюсь
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">бекендом</strong>.<br />
+            Создаю
+            <strong class="font-medium text-[oklch(94.9%_0_0)]">микросервисы и</strong>
+            <LinkPreview client:load url="https://core.telegram.org/bots/api" class="text-[#24A1DE] hover:bg-[#24A1DE]/15">
+              Telegram ботов
+            </LinkPreview>
+            с использованием
+            <LinkPreview client:load url="https://fastapi.tiangolo.com/" class="text-[#009485] hover:bg-[#009485]/15">
+              FastAPI
+            </LinkPreview>
+            и
+            <LinkPreview client:load url="https://github.com/aiogram/aiogram" class="text-[#24A1DE] hover:bg-[#24A1DE]/15">
+              aiogram
+            </LinkPreview>
+          </div>
+
+          <div data-animate="description">
+            Для
+            <strong class="font-medium text-[oklch(94.9% 0 0)]">фронтенда</strong>
+            использую
+            <LinkPreview client:load url="https://vite.dev/" class="text-[#F6C322] hover:bg-[#F6C322]/15">
+              Vite </LinkPreview>,
+            <LinkPreview client:load url="https://github.com/vuejs/core" class="text-[#41B883] hover:bg-[#41B883]/15">
+              Vue 3 </LinkPreview>,
+            <LinkPreview client:load url="https://github.com/vuejs/pinia" class="text-[#ECB732] hover:bg-[#ECB732]/15">
+              Pinia </LinkPreview>,
+            <LinkPreview client:load url="https://github.com/vuejs/router" class="text-[#34495E] hover:bg-[#34495E]/15">
+              Vue Router </LinkPreview>,
+            <LinkPreview client:load url="https://tailwindcss.com/" class="text-[#38BDF8] hover:bg-[#38BDF8]/15">
+              TailwindCSS </LinkPreview>и
+            <LinkPreview client:load url="https://reka-ui.com/" class="text-[#30C196] hover:bg-[#30C196]/15">
+              Reka UI
+            </LinkPreview>
+          </div>
+
+          <div data-animate="description" class="flex flex-wrap items-center gap-1">
+            В настоящее время работаю над
+            <LinkPreview url="https://beta.valory.su" class="text-red-500 hover:bg-red-500/15">
+              <Valory size={19} />
+              Valory
+            </LinkPreview>
+          </div>
+
+          <div data-animate="description" class="flex flex-wrap items-center gap-1">
+            Также занимаюсь контребьюцией в
+            <LinkPreview url="https://twir.app/" class="text-[#4F69FD] hover:bg-[#4F69FD]/15">
+              <Twir size={19} />
+              Twir
+            </LinkPreview>
+            и другие...
+          </div>
+        </div>
+
+        <section data-animate="blog" class="flex flex-col rounded-lg py-2">
+            {posts.length > 0 && (
+              <span class="text-white mb-1">Небольшой блог про разработку с деталями</span>
+            )}
+            {posts.map((post) => (
+            <article class="flex h-9 flex-col justify-center transition-opacity duration-300" data-slug={post.slug}>
+              <a
+                class="group flex justify-between items-center text-[oklch(77.3%_0_0)]"
+                href={`/blog/${post.slug}/`}
+                aria-label={`Читать: ${post.data.title}`}
+              >
+                <h2 class="text-md font-regular transition-colors group-hover:text-[oklch(94.9%_0_0)]">
+                  {post.data.title}
+                </h2>
+                <div class="flex flex-wrap gap-2 items-center justify-between text-xs text-white/50">
+                  <time class="py-1">
+                    {formatDate(post.data.publishDate)}
+                  </time>
+                  <div class="flex flex-wrap items-center gap-2">
+                      · {post.data.readingTime && (
+                      <span class="py-1">
+                          {post.data.readingTime}
+                      </span>
+                      )}
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </section>
+
+        <div data-animate="projects">
+          <Projects />
+        </div>
+        <div data-animate="footer">
+          <Footer />
+        </div>
+      </div>
+    </div>
+  </main>
 </BaseLayout>
+
+<script>
+  const elements = {
+    photo: document.querySelector('[data-animate="photo"]') as HTMLElement,
+    name: document.querySelector('[data-animate="name"]') as HTMLElement,
+    role: document.querySelector('[data-animate="role"]') as HTMLElement,
+    contacts: document.querySelector('[data-animate="contacts"]') as HTMLElement,
+    descriptions: Array.from(
+      document.querySelectorAll('[data-animate="description"]')
+    ) as HTMLElement[],
+    github: document.querySelector('[data-animate="blog"]') as HTMLElement,
+    projects: document.querySelector('[data-animate="projects"]') as HTMLElement,
+    footer: document.querySelector('[data-animate="footer"]') as HTMLElement,
+  }
+
+  const animateElements = () => {
+    const allElements = [
+      elements.photo,
+      elements.name,
+      elements.role,
+      elements.contacts,
+      ...elements.descriptions,
+      elements.github,
+      elements.projects,
+      elements.footer,
+    ].filter(Boolean)
+
+    allElements.forEach((el, index) => {
+      if (el) {
+        el.style.opacity = '0'
+        el.style.transform = 'translateY(20px)'
+
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.5s ease, transform 0.5s ease'
+          el.style.opacity = '1'
+          el.style.transform = 'translateY(0)'
+        }, index * 100)
+      }
+    })
+  }
+
+  animateElements()
+</script>
+
+<style>
+  main {
+    will-change: filter, transform, opacity;
+  }
+
+  [data-animate] {
+    will-change: filter, transform, opacity;
+  }
+
+  :global(.link-preview) {
+    transition: background-color 0.2s ease;
+  }
+
+  section:has(article:hover) article:not(:hover) {
+    opacity: 0.3;
+  }
+
+  section:hover article {
+    opacity: 0.3;
+  }
+
+  section:hover article:hover {
+    opacity: 1;
+  }
+</style>

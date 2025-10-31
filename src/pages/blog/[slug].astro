@@ -15,42 +15,30 @@ export async function getStaticPaths() {
 const { post } = Astro.props as { post: CollectionEntry<'blog'> }
 const { Content } = await post.render()
 
-const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat('ru-RU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(date)
+const formatDate = (date: Date) => {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}.${month}.${day}`
+}
 ---
 
 <BaseLayout title={`${post.data.title} — Блог`} description={post.data.description}>
   <main class="max-w-3xl px-5 py-16 mx-auto antialiased">
-    <article class="flex flex-col gap-8">
+    <article class="relative flex flex-col gap-8">
       <a
-        class="text-sm uppercase tracking-[0.2em] text-[oklch(77.3%_0_0)/80] inline-flex items-center gap-2 hover:text-[oklch(94.9%_0_0)] transition-colors"
-        href="/blog/"
+        class="absolute top-0 left-0 text-sm capitalize text-[oklch(77.3%_0_0)/80] inline-flex items-center gap-2 hover:text-[oklch(94.9%_0_0)] transition-colors"
+        href="/"
       >
-        ← Ко всем записям
+        ← Главная
       </a>
       <header class="flex flex-col gap-4">
-        <p class="text-xs uppercase tracking-[0.2em] text-[oklch(77.3%_0_0)/80]">
+        <h1 class="text-3xl font-semibold text-[oklch(94.9%_0_0)]">{post.data.title}</h1>
+        <p class="text-xs text-white/50">
           {formatDate(post.data.publishDate)}
           {post.data.updatedDate && ` · обновлено ${formatDate(post.data.updatedDate)}`}
         </p>
-        <h1 class="text-3xl font-semibold text-[oklch(94.9%_0_0)]">{post.data.title}</h1>
-        <p class="text-[oklch(77.3%_0_0)]">{post.data.description}</p>
-        <div class="flex flex-wrap gap-2 text-xs text-[oklch(77.3%_0_0)/80]">
-          {post.data.readingTime && (
-            <span class="px-2 py-1 rounded-full border border-white/10">
-              {post.data.readingTime}
-            </span>
-          )}
-          {post.data.tags.map((tag) => (
-            <span class="px-2 py-1 rounded-full border border-white/10" data-tag={tag}>
-              #{tag}
-            </span>
-          ))}
-        </div>
       </header>
 
       {post.data.heroImage && (

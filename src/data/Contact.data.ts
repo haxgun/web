@@ -1,6 +1,6 @@
 import { GithubIcon, TelegramIcon, TwitchIcon, XIcon } from '@/components/icons/socials'
 import type { IContact } from '@/types/contacts.type'
-import { AtSignIcon, BookOpen01Icon } from '@untitledui-icons/vue/line'
+import { AtSignIcon } from '@untitledui-icons/vue/line'
 
 export const ContactsData: IContact[] = [
   {
@@ -9,13 +9,6 @@ export const ContactsData: IContact[] = [
     name: 'Почта',
     color: '#007bff',
     icon: AtSignIcon,
-  },
-  {
-    url: '/blog/',
-    tag: 'статьи',
-    name: 'Блог',
-    color: '#f97316',
-    icon: BookOpen01Icon,
   },
   {
     url: 'https://github.com/haxgun',
