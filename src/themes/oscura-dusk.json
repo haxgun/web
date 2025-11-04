@@ -2,7 +2,7 @@
   "name": "oscura-dusk",
   "type": "dark",
   "colors": {
-    "editor.background": "#131419",
+    "editor.background": "#0f0f0f",
     "editor.foreground": "#E6E6E6",
     "editorLineNumber.foreground": "#32333B",
     "editorLineNumber.activeForeground": "#E6E6E6",

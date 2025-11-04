@@ -113,16 +113,16 @@ const formatDate = (date: Date) => {
               <span class="text-white mb-1">Небольшой блог про разработку с деталями</span>
             )}
             {posts.map((post) => (
-            <article class="flex h-9 flex-col justify-center transition-opacity duration-300" data-slug={post.slug}>
+            <article class="group group-hover:cursor-pointer flex h-9 flex-col justify-center transition-opacity duration-300" data-slug={post.slug}>
               <a
-                class="group flex justify-between items-center text-[oklch(77.3%_0_0)]"
+                class="flex justify-between items-center text-[oklch(77.3%_0_0)]"
                 href={`/blog/${post.slug}/`}
                 aria-label={`Читать: ${post.data.title}`}
               >
                 <h2 class="text-md font-regular transition-colors group-hover:text-[oklch(94.9%_0_0)]">
                   {post.data.title}
                 </h2>
-                <div class="flex flex-wrap gap-2 items-center justify-between text-xs text-white/50">
+                <div class="flex flex-wrap gap-2 items-center justify-between text-white/30">
                   <time class="py-1">
                     {formatDate(post.data.publishDate)}
                   </time>
