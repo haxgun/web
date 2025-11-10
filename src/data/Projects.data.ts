@@ -5,7 +5,7 @@ export const ProjectsData: IProject[] = [
     year: 2023,
     title: 'VALORY',
     description: 'Мультиинструмент для стримеров 🧩',
-    link: 'https://beta.valory.su',
+    link: 'https://valory.su',
     stage: 'In progress',
     dependencies: [
       'FastAPI',
