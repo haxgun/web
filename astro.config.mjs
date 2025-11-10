@@ -1,4 +1,5 @@
 import mdx from '@astrojs/mdx'
+import node from '@astrojs/node'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
@@ -23,4 +24,11 @@ export default defineConfig({
     },
   },
   output: 'static',
+  adapter: node({
+    mode: 'standalone',
+  }),
+  server: {
+    host: '0.0.0.0',
+    port: 4321,
+  },
 })

@@ -1,0 +1,22 @@
+services:
+  astro-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: astro-app
+    ports:
+      - '4321:4321'
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=4321
+    restart: unless-stopped
+    networks:
+      - haxgun-network
+      - web
+
+networks:
+  haxgun-network:
+    driver: bridge
+  web:
+    external: true
