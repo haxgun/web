@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'blog'> }
+const { Content } = await post.render()
+
+const formatDate = (date: Date) => {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+
+  return `${year}.${month}.${day}`
+}
+---
+
+<BaseLayout title={`${post.data.title} — Блог`} description={post.data.description}>
+  <main class="max-w-3xl px-5 py-16 mx-auto antialiased">
+    <article class="relative flex flex-col gap-6">
+      <a
+        class="flex bg-white/5 hover:bg-white/10 hover:border-white/60 items-center text-sm border border-white/40 rounded-xl w-fit py-1.5 px-3 capitalize text-[oklch(77.3%_0_0)/80] gap-2 transition-colors"
+        href="/"
+      >
+          На главную
+      </a>
+      <header class="flex flex-col gap-4">
+        <h1 class="text-3xl font-semibold text-[oklch(94.9%_0_0)]">{post.data.title}</h1>
+        <p class="text-xs text-white/50">
+          {formatDate(post.data.publishDate)}
+          {post.data.updatedDate && ` · обновлено ${formatDate(post.data.updatedDate)}`}
+        </p>
+      </header>
+
+      {post.data.heroImage && (
+        <img
+          class="rounded-lg border border-white/10"
+          src={post.data.heroImage}
+          alt=""
+          loading="lazy"
+        />
+      )}
+
+      <div class="blog-content">
+        <Content />
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-content :global(p) {
+    margin-block: 1rem;
+    line-height: 1.8;
+    color: oklch(77.3% 0 0);
+  }
+
+  .blog-content :global(h2),
+  .blog-content :global(h3) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: oklch(94.9% 0 0);
+  }
+
+  .blog-content :global(h3) {
+    font-size: 1.25rem;
+  }
+
+  .blog-content :global(h2) {
+    font-size: 1.5rem;
+  }
+
+  .blog-content :global(ul),
+  .blog-content :global(ol) {
+    margin-block: 1.5rem;
+    padding-left: 1.5rem;
+    color: oklch(77.3% 0 0);
+  }
+
+  .blog-content :global(li) {
+    margin-block: 0.5rem;
+  }
+
+  .blog-content :global(code) {
+    font-family: 'Geist Mono Variable', monospace;
+    background-color: transparent;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.4rem;
+    font-size: 0.9em;
+  }
+
+  .blog-content :global(pre) {
+    background-color: color-mix(in oklch, oklch(16.8% 0 0) 80%, white 20%);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    overflow: auto;
+    margin-block: 2rem;
+  }
+
+  .blog-content :global(a) {
+    color: #38bdf8;
+    text-decoration: underline;
+    text-decoration-color: rgba(56, 189, 248, 0.4);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .blog-content :global(a:hover) {
+    color: #7dd3fc;
+  }
+</style>

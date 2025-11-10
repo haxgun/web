@@ -1,15 +1,11 @@
 <script lang="ts" setup>
 import { Button, Dialog, VideoBackground } from '@/components/minecraft'
-import { Code } from '@/components/ui'
 import type { IMinecraftLink } from '@/types/links.type'
-import { useFavicon, useTitle } from '@vueuse/core'
-import { onMounted, type Ref, ref } from 'vue'
+import { useFavicon } from '@vueuse/core'
+import { onMounted, onUnmounted, type Ref, ref } from 'vue'
 
 const serverModal: Ref<boolean> = ref(false)
 const minePiModal: Ref<boolean> = ref(false)
-
-const title = useTitle()
-title.value = 'Курс "Программирование в Minecraft"'
 
 const links: Array<IMinecraftLink> = [
   {
@@ -28,6 +24,13 @@ const links: Array<IMinecraftLink> = [
 
 onMounted(() => {
   useFavicon('/minecraft/favicon.webp')
+  const link = document.querySelector("link[rel~='icon']")
+  link?.setAttribute('data-locked', 'true')
+})
+
+onUnmounted(() => {
+  const link = document.querySelector("link[rel~='icon']")
+  link?.removeAttribute('data-locked')
 })
 </script>
 
@@ -87,23 +90,15 @@ onMounted(() => {
             <span
               class="text-lg text-[#a0a0a0] text-center text-pretty whitespace-pre-line leading-relaxed"
             >
-              Выберите версию библиотеки исходя из версии Python. Проверить версию Python можно в
-              командной строке введя команду
+              Выберите версию библиотеки исходя из версии Python
             </span>
-            <Code code="python --version" />
           </template>
 
           <Button
             as="a"
-            href="https://github.com/py3minepi/py3minepi/archive/refs/heads/master.zip"
-          >
-            <span>Меньше 3.9 </span>
-          </Button>
-          <Button
-            as="a"
             href="https://github.com/haxgun/py3minepi-reload/archive/refs/heads/master.zip"
           >
-            <span>Больше или равно 3.9</span>
+            <span>Скачать</span>
           </Button>
         </Dialog>
         <Button

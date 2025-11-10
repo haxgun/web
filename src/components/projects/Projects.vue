@@ -2,10 +2,6 @@
 import { Section, SectionContent, SectionHeader } from '@/components/sections'
 import { ProjectsData } from '@/data/Projects.data'
 import { ProjectsLink } from '.'
-
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 </script>
 
 <template>

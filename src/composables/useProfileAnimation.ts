@@ -29,8 +29,6 @@ export function useProfileAnimation() {
       footer,
     ].filter(Boolean) as HTMLElement[]
 
-    console.log('Total elements to animate:', allElements.length) // Отладка
-
     if (allElements.length === 0) {
       return
     }

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+<BaseLayout title="Страница не найдена — Миша Гусев">
+  <main class="min-h-dvh flex items-center justify-center px-6">
+    <div class="max-w-lg text-center space-y-4">
+      <p class="text-sm font-semibold uppercase tracking-wide text-neutral-400">404</p>
+      <h1 class="text-3xl font-bold">Такой страницы нет</h1>
+      <p class="text-neutral-400">
+        Возможно, ссылка устарела или была удалена. Вернитесь на главную, чтобы продолжить знакомство с
+        проектами.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-medium transition hover:bg-white/20"
+      >
+        На главную
+      </a>
+    </div>
+  </main>
+</BaseLayout>
