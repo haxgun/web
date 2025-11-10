@@ -1,4 +1,4 @@
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts.ts'
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/const.ts'
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
 
